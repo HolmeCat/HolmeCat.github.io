@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://holmecat.github.io/</id>
     <title>福尔摩猫</title>
-    <updated>2020-01-23T06:27:13.929Z</updated>
+    <updated>2020-01-23T07:19:18.444Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://holmecat.github.io/"/>
     <link rel="self" href="https://holmecat.github.io/atom.xml"/>
@@ -10,4 +10,65 @@
     <logo>https://holmecat.github.io/images/avatar.png</logo>
     <icon>https://holmecat.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 福尔摩猫</rights>
+    <entry>
+        <title type="html"><![CDATA[关于 福尔摩猫]]></title>
+        <id>https://holmecat.github.io/post/guan-yu-fu-er-mo-mao</id>
+        <link href="https://holmecat.github.io/post/guan-yu-fu-er-mo-mao">
+        </link>
+        <updated>2020-01-23T06:30:09.000Z</updated>
+        <content type="html"><![CDATA[<p>这是某个很菜的叫做<s>福尔摩猫</s>的博客，它目前并将长期处于无干货阶段，只有一些闲言碎语<br>
+细节如下</p>
+<ul>
+<li>
+<h1 id="个人状况">个人状况</h1>
+</li>
+</ul>
+<p>学生，一直都是学生，毕生缺乏学习且非常懒惰，很长的一段时间肯定摘不掉学生的帽子<br>
+目前基础能力不咋地，方向不明确，技术也不太扎实<br>
+懂一点C++和C#，了解点简单算法，SpringBoot，Android开发，.net框架，数据库等其他知识<br>
+总是在游戏制作的原点踏正步走，卡在数论的门框里面还没到门里面去。<br>
+完全不会前端，朝着后端开发试图努力一下的初学者</p>
+<ul>
+<li>
+<h1 id="博客诞生">博客诞生</h1>
+</li>
+</ul>
+<p>2020-1-23 懒惰的开发者将这个博客终于是弄了一下，拖拉了很久很久很久很久的东西。<br>
+未来将在这里肆意妄为，胡言乱语</p>
+<ul>
+<li>
+<h1 id="markdown学习和使用">MarkDown学习和使用</h1>
+</li>
+</ul>
+<p>为了写文章，被迫<s>主动是不存在的</s>学习一下这个东西。<br>
+很早之前就大体上知道有这种东西的存在，直到现在才算正式入坑。<br>
+**到这里先吐槽一下这玩意儿段落的换行，为啥我这么不习惯。。。 **<br>
+以及上面这句加粗也没有用！？以及还有一堆快捷键可以按。。。好把这我学会了。<br>
+作为一个毫无前端经验的人，这种东西怕不是一段时间不用也就忘记了，当然学习成本也是相当的低，没什么花头，用用应该就熟练了吧。不要问，问就是仅限于初级技巧，高级技巧什么的不存在的。<br>
+本来还想列几个MarkDown的东西，后来觉得，这块回头翻翻菜鸟教程就够了。</p>
+<ul>
+<li>
+<h1 id="结束语">结束语</h1>
+</li>
+</ul>
+<p>最后练习使用一段代码进行结尾吧。</p>
+<pre><code class="language-c#">using System;
+namespace HelloWorldApplication
+{
+    /* 类名为 HelloWorld */
+    class HelloWorld
+    {
+        /* main函数 */
+        static void Main(string[] args)
+        {
+            /* 我的第一个 C# 程序 */
+            Console.WriteLine(&quot;Hello World!&quot;);
+            Console.ReadKey();
+        }
+    }
+}
+</code></pre>
+<p>以上。。。</p>
+]]></content>
+    </entry>
 </feed>
