@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>关于 福尔摩猫 | 福尔摩猫</title>
+<title>C++ 北大MOOC综合大作业 | 福尔摩猫</title>
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="一个随便学习的卑微颓废">
 <link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1580882077292">
@@ -24,8 +24,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
-    <meta name="description" content="关于 福尔摩猫" />
-    <meta name="keywords" content="随笔" />
+    <meta name="description" content="C++ 北大MOOC综合大作业" />
+    <meta name="keywords" content="程序设计基础" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -192,15 +192,26 @@
             <div class="toc-box right-motion">
   <div class="toc-wrapper auto-number auto" id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E4%B8%AA%E4%BA%BA%E7%8A%B6%E5%86%B5">个人状况</a></li>
-<li><a href="#%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84">知识结构</a></li>
-<li><a href="#%E5%8D%9A%E5%AE%A2%E8%AF%9E%E7%94%9F%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97">博客诞生（更新日志）</a></li>
-<li><a href="#markdown%E5%AD%A6%E4%B9%A0%E5%92%8C%E4%BD%BF%E7%94%A8">MarkDown学习和使用</a>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E5%90%8D%E7%A7%B0wow3fake">项目名称：WOW3Fake</a></li>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B8%89%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C3">项目背景：程序设计与算法（三）魔兽世界3</a></li>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E9%A3%9F%E7%94%A8%E8%AF%B4%E6%98%8E">项目食用说明</a></li>
+<li><a href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%85%B6%E5%AE%9E%E5%B0%B1%E6%98%AF%E8%BF%99%E9%81%93%E9%A2%98%E7%9A%84%E9%A2%98%E5%B9%B2%E6%9C%89%E7%82%B9%E9%95%BF">需求分析：其实就是这道题的题干，有点长</a>
 <ul>
-<li><a href="#%E5%AE%9A%E4%B9%89">定义</a></li>
+<li><a href="#%E9%A2%98%E7%9B%AE%E5%90%8D%E7%A7%B0">题目名称</a></li>
+<li><a href="#%E6%8F%8F%E8%BF%B0">描述</a></li>
+<li><a href="#%E8%BE%93%E5%85%A5">输入</a></li>
+<li><a href="#%E8%BE%93%E5%87%BA">输出</a></li>
+<li><a href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5">样例输入</a></li>
+<li><a href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA">样例输出</a></li>
+<li><a href="#%E6%8F%90%E7%A4%BA">提示</a></li>
 </ul>
 </li>
-<li><a href="#%E5%BC%80%E9%80%9A%E5%B0%8F%E7%BB%93">开通小结</a></li>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E8%AE%BE%E8%AE%A1%E8%AF%B4%E6%98%8E%E4%BB%A5%E5%8F%8A%E5%B0%8F%E7%BB%93">项目设计说明以及小结</a>
+<ul>
+<li><a href="#%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF">概要设计思路</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结</a></li>
+</ul>
+</li>
 </ul>
 
   </div>
@@ -451,22 +462,16 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://holmecat.github.io/post/guan-yu-fu-er-mo-mao">
-      关于 福尔摩猫
+    <a class="post-title-link" href="https://holmecat.github.io/post/c-bei-da-mooc-zong-he-da-zuo-ye">
+      C++ 北大MOOC综合大作业
     </a>
   </h1>
   <div class="post-meta">
     
-      <span class="meta-item">
-        <i class="fa fa-thumb-tack"></i>
-        <span>置顶</span>
-        <span class="post-meta-divider">|</span>
-      </span>
-    
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-01-23</span>
+      <span>2020-02-05</span>
     </span>
     
       <span class="meta-item">
@@ -475,8 +480,8 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://holmecat.github.io/tag/y1rvQJUvd">
-              <span>随笔</span>
+            <a href="https://holmecat.github.io/tag/g2EuZfynC">
+              <span>程序设计基础</span>
             </a>
           
         
@@ -485,52 +490,194 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3分钟</span>
+      <span>15分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>645<span class="pc-show">字数</span></span>
+      <span>3937<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <!-- more -->
-<p>这是某个很菜的叫做<s>福尔摩猫</s>的博客<br>
-它目前并将长期处于无干货阶段，只有一些闲言碎语</p>
-<h1 id="个人状况">个人状况</h1>
-<p>福尔摩猫，一个懒惰的肥宅拖拉怪，擅长持久性睡觉<br>
-是一个小学生，小 学生，普通人中的普通人，卑微大颓废<br>
-经常搞砸很多事情，非常需要大佬带</p>
-<h1 id="知识结构">知识结构</h1>
-<p>物理大道的过路人，半路出家的代码猴<br>
-数学一般，英语贼菜，历史忘得差不多了<br>
-<strong>懂一点</strong>C++，C#，Java，我就当有点基础强行算懂了<br>
-<strong>了解点</strong>简单算法，SpringBoot，Android开发，.net框架，数据库等其他知识，全是皮毛不好意思<br>
-其实也确实没啥好吹的了，到现在也没折腾出来几个产品啥的，真的是 履历 == NULL<br>
-卑微的人生 飞落寻常百姓家</p>
-<h1 id="博客诞生更新日志">博客诞生（更新日志）</h1>
-<p>2020-1-23<br>
-本拖拉怪将这个博客终于是弄了一下，拖拉了很久很久很久很久的东西。<br>
-2020-2-4<br>
-本拖拉怪将这个博客终于是重新弄了一下，其实就是换了个皮。</p>
-<h1 id="markdown学习和使用">MarkDown学习和使用</h1>
-<h2 id="定义">定义</h2>
-<pre><code>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。   
-Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。
-Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。  
-Markdown 编写的文档后缀为 .md, .markdown。
-</code></pre>
-<p>刚接触到的时候，虽然认为它很复杂，但是也认为能够实现很多繁杂的排版。<br>
-接触了一会儿之后，打消了我花里胡哨的念头（MarkDown不过关），还是专注于内容吧。<br>
-其实它不难，但是有坑。尽管如此，困扰我很久的<strong>加粗问题</strong>终于被我解决啦。以及快捷键真香啊。<br>
-在日后的必要写作当中，再慢慢地习惯它吧。</p>
-<h1 id="开通小结">开通小结</h1>
-<p>2020鼠年年初，凛冬已至，武汉肺炎，震慑人心。<br>
-本大肥宅在家苟了很长的一段时间，不思进取，天天玩耍。<br>
-在以往的学习当中，无数的博客帮助了我无数，无数的坑也让我觉察到了记录的必要性。<br>
-虽不在秋，却是多事。从今年开始，该搞得东西磨磨蹭蹭慢慢搞起，同时也欢迎过路人来这里瞎嗨一下，这个博客要开始产出东西了，谢谢大家。</p>
+                <h1 id="项目名称wow3fake">项目名称：WOW3Fake</h1>
+<p>之所以这么起名字，是因为，这是假的WOW3嘿嘿嘿<br>
+项目传送门：<a href="https://github.com/HolmeCat/WOW3Fake">WOW3Fake</a></p>
+<h1 id="项目背景程序设计与算法三魔兽世界3">项目背景：程序设计与算法（三）魔兽世界3</h1>
+<p>本项目题目来自OpenJudge，北京大学MOOC程序设计实习的大作业<br>
+感谢北大的相关老师设计此题，对于还在学习阶段的人具有C++的综合考察性质</p>
+<h1 id="项目食用说明">项目食用说明</h1>
+<p>具体代码和相关注释参见传送门，访问GitHub后打开main.cpp即可</p>
+<h1 id="需求分析其实就是这道题的题干有点长">需求分析：其实就是这道题的题干，有点长</h1>
+<h2 id="题目名称">题目名称</h2>
+<p>魔兽世界三(开战) 总时间限制: 2000ms 内存限制: 65536kB<br>
+来源：Guo Wei</p>
+<h2 id="描述">描述</h2>
+<p>魔兽世界的西面是红魔军的司令部，东面是蓝魔军的司令部。两个司令部之间是依次排列的若干城市，城市从西向东依次编号为1,2,3 .... N ( N &lt;= 20)。红魔军的司令部算作编号为0的城市，蓝魔军的司令部算作编号为N+1的城市。司令部有生命元，用于制造武士。</p>
+<p>两军的司令部都会制造武士。武士一共有dragon 、ninja、iceman、lion、wolf 五种。每种武士都有编号、生命值、攻击力这三种属性。</p>
+<p>双方的武士编号都是从1开始计算。红方制造出来的第n 个武士，编号就是n。同样，蓝方制造出来的第n 个武士，编号也是n。</p>
+<p>武士在刚降生的时候有一个初始的生命值，生命值在战斗中会发生变化，如果生命值减少到0（生命值变为负数时应当做变为0处理），则武士死亡（消失）。</p>
+<p>武士可以拥有武器。武器有三种，sword, bomb,和arrow，编号分别为0,1,2。</p>
+<p>sword的攻击力是使用者当前攻击力的20%(去尾取整)。<br>
+bomb的攻击力是使用者当前攻击力的40%(去尾取整)，但是也会导致使用者受到攻击，对使用者的攻击力是对敌人取整后的攻击力的1/2(去尾取整)。Bomb一旦使用就没了。<br>
+arrow的攻击力是使用者当前攻击力的30%(去尾取整)。一个arrow用两次就没了。</p>
+<p>武士降生后就朝对方司令部走，在经过的城市如果遇到敌人（同一时刻每个城市最多只可能有1个蓝武士和一个红武士），就会发生战斗。战斗的规则是：</p>
+<p>在奇数编号城市，红武士先发起攻击 / 在偶数编号城市，蓝武士先发起攻击</p>
+<p>战斗开始前，双方先对自己的武器排好使用顺序，然后再一件一件地按顺序使用。编号小的武器，排在前面。若有多支arrow，用过的排在前面。排好序后，攻击者按此排序依次对敌人一件一件地使用武器。如果一种武器有多件，那就都要用上。每使用一件武器，被攻击者生命值要减去武器攻击力。如果任何一方生命值减为0或小于0即为死去。有一方死去，则战斗结束。</p>
+<p>双方轮流使用武器，甲用过一件，就轮到乙用。某一方把自己所有的武器都用过一轮后，就从头开始再用一轮。如果某一方没有武器了，那就挨打直到死去或敌人武器用完。武器排序只在战斗前进行，战斗中不会重新排序。</p>
+<p>如果双方武器都用完且都还活着，则战斗以平局结束。如果双方都死了，也算平局。</p>
+<p>有可能由于武士自身攻击力太低，而导致武器攻击力为0。攻击力为0的武器也要使用。如果战斗中双方的生命值和武器的状态都不再发生变化，则战斗结束，算平局。</p>
+<p>战斗的胜方获得对方手里的武器。武士手里武器总数不超过10件。缴获武器时，按照武器种类编号从小到大缴获。如果有多件arrow，优先缴获没用过的。</p>
+<p>如果战斗开始前双方都没有武器，则战斗视为平局。如果先攻击方没有武器，则由后攻击方攻击。</p>
+<p>不同的武士有不同的特点。</p>
+<p>编号为n的dragon降生时即获得编号为n%3 的武器。dragon在战斗结束后，如果还没有战死，就会欢呼。</p>
+<p>编号为n的ninjia降生时即获得编号为n%3 和(n+1)%3的武器。ninja 使用bomb不会让自己受伤。</p>
+<p>编号为n的iceman降生时即获得编号为n%3 的武器。iceman每前进一步，生命值减少10%(减少的量要去尾取整)。</p>
+<p>编号为n的lion降生时即获得编号为n%3 的武器。lion 有“忠诚度”这个属性，其初始值等于它降生之后其司令部剩余生命元的数目。每前进一步忠诚度就降低K。忠诚度降至0或0以下，则该lion逃离战场,永远消失。但是已经到达敌人司令部的lion不会逃跑。lion在己方司令部可能逃跑。</p>
+<p>wolf降生时没有武器，但是在战斗开始前会抢到敌人编号最小的那种武器。如果敌人有多件这样的武器，则全部抢来。Wolf手里武器也不能超过10件。如果敌人arrow太多没法都抢来，那就先抢没用过的。如果敌人也是wolf，则不抢武器。</p>
+<p>以下是不同时间会发生的不同事件：</p>
+<p>在每个整点，即每个小时的第0分， 双方的司令部中各有一个武士降生。</p>
+<p>红方司令部按照iceman、lion、wolf、ninja、dragon 的顺序制造武士。</p>
+<p>蓝方司令部按照lion、dragon、ninja、iceman、wolf 的顺序制造武士。</p>
+<p>制造武士需要生命元。</p>
+<p>制造一个初始生命值为m 的武士，司令部中的生命元就要减少m 个。</p>
+<p>如果司令部中的生命元不足以制造某本该造的武士，那就从此停止制造武士。</p>
+<p>在每个小时的第5分，该逃跑的lion就在这一时刻逃跑了。</p>
+<p>在每个小时的第10分：所有的武士朝敌人司令部方向前进一步。即从己方司令部走到相邻城市，或从一个城市走到下一个城市。或从和敌军司令部相邻的城市到达敌军司令部。</p>
+<p>在每个小时的第35分：在有wolf及其敌人的城市，wolf要抢夺对方的武器。</p>
+<p>在每个小时的第40分：在有两个武士的城市，会发生战斗。</p>
+<p>在每个小时的第50分，司令部报告它拥有的生命元数量。</p>
+<p>在每个小时的第55分，每个武士报告其拥有的武器情况。</p>
+<p>武士到达对方司令部后就算完成任务了，从此就呆在那里无所事事。</p>
+<p>任何一方的司令部里若是出现了敌人，则认为该司令部已被敌人占领。</p>
+<p>任何一方的司令部被敌人占领，则战争结束。战争结束之后就不会发生任何事情了。</p>
+<p>给定一个时间，要求你将从0点0分开始到此时间为止的所有事件按顺序输出。事件及其对应的输出样例如下：</p>
+<ol>
+<li>武士降生</li>
+</ol>
+<p>输出样例：000:00 blue dragon 1 born</p>
+<p>表示在0点0分，编号为1的蓝魔dragon武士降生</p>
+<p>如果造出的是lion，那么还要多输出一行，例:</p>
+<p>000:00 blue lion 1 born</p>
+<p>Its loyalty is 24</p>
+<p>表示该lion降生时的忠诚度是24</p>
+<ol start="2">
+<li>lion逃跑</li>
+</ol>
+<p>输出样例：000:05 blue lion 1 ran away</p>
+<p>表示在0点5分，编号为1的蓝魔lion武士逃走</p>
+<ol start="3">
+<li>武士前进到某一城市</li>
+</ol>
+<p>输出样例：</p>
+<p>000:10 red iceman 1 marched to city 1 with 20 elements and force 30</p>
+<p>表示在0点10分，红魔1号武士iceman前进到1号城市，此时他生命值为20,攻击力为30</p>
+<p>对于iceman,输出的生命值应该是变化后的数值</p>
+<ol start="4">
+<li>wolf抢敌人的武器</li>
+</ol>
+<p>000:35 blue wolf 2 took 3 bomb from red dragon 2 in city 4</p>
+<p>表示在0点35分，4号城市中，红魔1号武士wolf 抢走蓝魔2号武士dragon 3个bomb。为简单起见，武器不写复数形式</p>
+<ol start="5">
+<li>报告战斗情况</li>
+</ol>
+<p>战斗只有3种可能的输出结果：</p>
+<p>000:40 red iceman 1 killed blue lion 12 in city 2 remaining 20 elements</p>
+<p>表示在0点40分，1号城市中，红魔1号武士iceman 杀死蓝魔12号武士lion后，剩下生命值20</p>
+<p>000:40 both red iceman 1 and blue lion 12 died in city 2</p>
+<p>注意，把红武士写前面</p>
+<p>000:40 both red iceman 1 and blue lion 12 were alive in city 2</p>
+<p>注意，把红武士写前面</p>
+<ol start="6">
+<li>武士欢呼</li>
+</ol>
+<p>输出样例：003:40 blue dragon 2 yelled in city 4</p>
+<ol start="7">
+<li>武士抵达敌军司令部</li>
+</ol>
+<p>输出样例：001:10 red iceman 1 reached blue headquarter with 20 elements and force 30</p>
+<p>（此时他生命值为20,攻击力为30）对于iceman,输出的生命值和攻击力应该是变化后的数值</p>
+<ol start="8">
+<li>司令部被占领</li>
+</ol>
+<p>输出样例：003:10 blue headquarter was taken</p>
+<ol start="9">
+<li>司令部报告生命元数量</li>
+</ol>
+<p>000:50 100 elements in red headquarter</p>
+<p>000:50 120 elements in blue headquarter</p>
+<p>表示在0点50分，红方司令部有100个生命元，蓝方有120个</p>
+<ol start="10">
+<li>武士报告情况</li>
+</ol>
+<p>000:55 blue wolf 2 has 2 sword 3 bomb 0 arrow and 7 elements</p>
+<p>为简单起见，武器都不写复数形式。elements一律写复数，哪怕只有1个</p>
+<p>交代武器情况时，次序依次是：sword,bomb, arrow。</p>
+<p>输出事件时：</p>
+<p>首先按时间顺序输出；</p>
+<p>同一时间发生的事件，按发生地点从西向东依次输出. 武士前进的事件, 算是发生在目的地。</p>
+<p>在一次战斗中有可能发生上面的 5 至 6 号事件。这些事件都算同时发生，其时间就是战斗开始时间。一次战斗中的这些事件，序号小的应该先输出。</p>
+<p>两个武士同时抵达同一城市，则先输出红武士的前进事件，后输出蓝武士的。</p>
+<p>对于同一城市，同一时间发生的事情，先输出红方的，后输出蓝方的。</p>
+<p>显然，8号事件发生之前的一瞬间一定发生了7号事件。输出时，这两件事算同一时间发生，但是应先输出7号事件</p>
+<p>虽然任何一方的司令部被占领之后，就不会有任何事情发生了。但和司令部被占领同时发生的事件，全都要输出。</p>
+<h2 id="输入">输入</h2>
+<p>第一行是t,代表测试数据组数，每组样例共三行。</p>
+<p>第一行，4个整数 M,N,K, T。其含义为：<br>
+每个司令部一开始都有M个生命元( 1 &lt;= M &lt;= 100000)<br>
+两个司令部之间一共有N个城市( 1 &lt;= N &lt;= 20 )<br>
+lion每前进一步，忠诚度就降低K。(0&lt;=K&lt;=100)<br>
+要求输出从0时0分开始，到时间T为止(包括T) 的所有事件。T以分钟为单位，0 &lt;= T &lt;= 6000</p>
+<p>第二行：五个整数，依次是 dragon 、ninja、iceman、lion、wolf 的初始生命值。它们都大于0小于等于200</p>
+<p>第三行：五个整数，依次是 dragon 、ninja、iceman、lion、wolf 的攻击力。它们都大于0小于等于200</p>
+<h2 id="输出">输出</h2>
+<p>对每组数据，先输出一行：</p>
+<p>Case n:</p>
+<p>如对第一组数据就输出 Case 1:</p>
+<p>然后按恰当的顺序和格式输出到时间T为止发生的所有事件。每个事件都以事件发生的时间开头，时间格式是“时: 分”，“时”有三位，“分”有两位。</p>
+<h2 id="样例输入">样例输入</h2>
+<p>1<br>
+20 1 10 400<br>
+20 20 30 10 20<br>
+5 5 5 5 5</p>
+<h2 id="样例输出">样例输出</h2>
+<p>Case 1:<br>
+000:00 blue lion 1 born<br>
+Its loyalty is 10<br>
+000:10 blue lion 1 marched to city 1 with 10 elements and force 5<br>
+000:50 20 elements in red headquarter<br>
+000:50 10 elements in blue headquarter<br>
+000:55 blue lion 1 has 0 sword 1 bomb 0 arrow and 10 elements<br>
+001:05 blue lion 1 ran away<br>
+001:50 20 elements in red headquarter<br>
+001:50 10 elements in blue headquarter<br>
+002:50 20 elements in red headquarter<br>
+002:50 10 elements in blue headquarter<br>
+003:50 20 elements in red headquarter<br>
+003:50 10 elements in blue headquarter<br>
+004:50 20 elements in red headquarter<br>
+004:50 10 elements in blue headquarter<br>
+005:50 20 elements in red headquarter<br>
+005:50 10 elements in blue headquarter</p>
+<h2 id="提示">提示</h2>
+<p>请注意浮点数精度误差问题。OJ上的编译器编译出来的可执行程序，在这方面和你电脑上执行的程序很可能会不一致。5 ×0.3 的结果，有的机器上可能是 15.00000001，去尾取整得到15,有的机器上可能是14.9999999，去尾取整后就变成14。因此,本题不要写 5 × 0.3，要写 5 × 3 / 10。</p>
+<h1 id="项目设计说明以及小结">项目设计说明以及小结</h1>
+<p>有一说一，这个作业是在此文写作半年前做的，当时还没有什么记录，现在重新整理出来，本身软件工程学的也比较烂，所以就没有进行很复杂的设计说明，仅提供代码和简单说明<br>
+具体的可以参考代码和相关注释，网上也有很多这道题的解题报告，不过可能思路多有一定差异</p>
+<h2 id="概要设计思路">概要设计思路</h2>
+<p>整体的解题方法就是依照题意一层层剖析，依照面向对象的设计模式进行编码设计<br>
+武器，武士都是设计一个基类，多个具体的派生类，然后实践虚函数来达到目的<br>
+设计城市类City，用于程序推演时实例化那十几个坐标城市对象。每个城市中，有两个指针指向null或者停留在城市的红方蓝方武士对象，城市中具体发生的活动设计为函数<br>
+最后，有一个大的事件类Event，里面管理城市数组，以及依照时间先后来安排调度事件的发生，调用对应城市相关的函数<br>
+Main方法仅进行事件类的初始化和销毁工作，依照输入输出要求进行一些相关控制<br>
+其他相关细节都在各函数实现当中，属于详细设计，在此不详述。<s>因为不记得了</s></p>
+<h2 id="小结">小结</h2>
+<p>这道题的结构比较复杂，虽然作为一道在线的判题，但是量还是算很大了。难度上只是作为C++知识的综合考察，包含了C的结构化设计，C++类与对象，STL的初步知识（Vector），是程序语言题不涉及数据结构和算法的应用。调试的时候因为数据很大，所以需要使用文件读入先行测试。一道题不可能考到C++的方方面面，也没有深入到一些进阶模块，但是对于C++的基础而言这道题算是很全面了。<br>
+做题过程中，初期确实也在纸上画了一些简单的相关的设计图，否则做到后面确实会很混乱。到后期还是有一些先行设计上的缺陷，只能用一些面向过程的解决方法。<br>
+这道题我认为，最大的难点在于逻辑和仔细，因为输出格式要求和较大的输出量，在线判题又是很严格的，所以到最后我用了Beyond Compare进行文件对比才找到最后三个马大哈的地方。<br>
+通过啦.jpg<br>
+<img src="https://holmecat.github.io//post-images/1580881139435.png" alt="" loading="lazy"></p>
 
               </div>
               <div class="post-footer">
@@ -541,7 +688,7 @@ Markdown 编写的文档后缀为 .md, .markdown。
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://holmecat.github.io/post/guan-yu-fu-er-mo-mao" title="关于 福尔摩猫">关于 福尔摩猫</a>
+      <a href="https://holmecat.github.io/post/c-bei-da-mooc-zong-he-da-zuo-ye" title="C++ 北大MOOC综合大作业">C++ 北大MOOC综合大作业</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -550,18 +697,18 @@ Markdown 编写的文档后缀为 .md, .markdown。
   </ul>
   <div class="tags">
     
-      <a href="https://holmecat.github.io/tag/y1rvQJUvd"># 随笔</a>
+      <a href="https://holmecat.github.io/tag/g2EuZfynC"># 程序设计基础</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="C++ 北大MOOC综合大作业" href="https://holmecat.github.io/post/c-bei-da-mooc-zong-he-da-zuo-ye">C++ 北大MOOC综合大作业</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="C++ 北大MOOC综合大作业" href="https://holmecat.github.io/post/c-bei-da-mooc-zong-he-da-zuo-ye">上一篇</a>
-      
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="关于 福尔摩猫" href="https://holmecat.github.io/post/guan-yu-fu-er-mo-mao">关于 福尔摩猫</a>
+        <a class="nav-mobile-next" title="关于 福尔摩猫" href="https://holmecat.github.io/post/guan-yu-fu-er-mo-mao">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
