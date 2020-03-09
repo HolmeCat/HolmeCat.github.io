@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>编译原理 引论 | 福尔摩猫</title>
+<title>计算机组成原理 系统概论 | 福尔摩猫</title>
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="一个随便学习的卑微颓废">
 <link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1583747698327">
@@ -24,8 +24,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
-    <meta name="description" content="编译原理 引论" />
-    <meta name="keywords" content="编译原理" />
+    <meta name="description" content="计算机组成原理 系统概论" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -192,33 +192,37 @@
             <div class="toc-box right-motion">
   <div class="toc-wrapper auto-number auto" id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E8%AF%91-compile">什么是编译 Compile</a></li>
-<li><a href="#%E7%BC%96%E8%AF%91%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB-compiler-and-interpreter">编译器和解释器的区别 Compiler and Interpreter</a></li>
-<li><a href="#%E8%AE%A1%E7%AE%97%E6%80%9D%E7%BB%B4-computational-thinking">计算思维 Computational Thinking</a></li>
-<li><a href="#%E6%8A%BD%E8%B1%A1-%E5%9B%BE%E7%81%B5%E6%9C%BA">抽象-图灵机</a></li>
-<li><a href="#%E9%82%B1%E5%A5%87-%E5%9B%BE%E7%81%B5%E9%97%AE%E9%A2%98-the-church-turing-thesis">邱奇-图灵问题 The Church-Turing thesis</a></li>
-<li><a href="#%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B">编译过程</a>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%88%86%E7%B1%BB">计算机的分类</a>
 <ul>
-<li><a href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90">词法分析</a></li>
-<li><a href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90">语法分析</a></li>
-<li><a href="#%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90">中间代码生成</a></li>
-<li><a href="#%E4%BC%98%E5%8C%96">优化</a></li>
-<li><a href="#%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81%E4%BA%A7%E7%94%9F">目标代码产生</a></li>
+<li><a href="#%E7%94%B5%E5%AD%90%E6%95%B0%E5%AD%97%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%88%86%E7%B1%BB">电子数字计算机的分类</a></li>
 </ul>
 </li>
-<li><a href="#%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BB%93%E6%9E%84">编译程序的结构</a>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%91%E5%B1%95%E7%AE%80%E5%8F%B2">计算机发展简史</a>
 <ul>
-<li><a href="#%E6%80%BB%E6%A1%86">总框</a></li>
-<li><a href="#%E5%87%BA%E9%94%99%E5%A4%84%E7%90%86">出错处理</a></li>
-<li><a href="#%E6%A6%82%E5%BF%B5%E9%81%8D-pass">概念：遍 Pass</a></li>
-<li><a href="#%E7%BC%96%E8%AF%91%E5%89%8D%E7%AB%AF%E5%92%8C%E5%90%8E%E7%AB%AF">编译前端和后端</a></li>
+<li><a href="#%E4%B8%80-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%BA%94%E4%BB%A3%E5%8F%98%E5%8C%96">一、计算机的五代变化</a></li>
+<li><a href="#%E4%BA%8C-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%8F%91%E5%B1%95">二、半导体存储器的发展</a></li>
+<li><a href="#%E4%B8%89-%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E5%8F%91%E5%B1%95">三、微处理器的发展</a></li>
+<li><a href="#%E5%9B%9B-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87">四、计算机的性能指标</a></li>
 </ul>
 </li>
-<li><a href="#%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%94%9F%E6%88%90">编译程序的生成</a>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6">计算机硬件</a>
 <ul>
-<li><a href="#%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80%E4%B9%A6%E5%86%99">高级语言书写</a></li>
-<li><a href="#%E7%A7%BB%E6%A4%8D">移植</a></li>
-<li><a href="#%E8%87%AA%E7%BC%96%E8%AF%91">自编译</a></li>
+<li><a href="#%E7%A1%AC%E4%BB%B6%E7%9A%84%E7%BB%84%E6%88%90%E8%A6%81%E7%B4%A0">硬件的组成要素</a></li>
+<li><a href="#%E6%95%B0%E5%AD%97%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90">数字计算机基本组成</a>
+<ul>
+<li><a href="#%E8%BF%90%E7%AE%97%E5%99%A8">运算器</a></li>
+<li><a href="#%E5%AD%98%E5%82%A8%E5%99%A8">存储器</a></li>
+<li><a href="#%E6%8E%A7%E5%88%B6%E5%99%A8">控制器</a></li>
+<li><a href="#%E9%80%82%E9%85%8D%E5%99%A8%E4%B8%8E%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87">适配器与输入输出设备</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6">计算机软件</a></li>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84">计算机系统的层次结构</a>
+<ul>
+<li><a href="#%E4%BA%94%E7%BA%A7%E7%BB%93%E6%9E%84">五级结构</a></li>
+<li><a href="#%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%A1%AC%E4%BB%B6%E7%9A%84%E9%80%BB%E8%BE%91%E7%AD%89%E4%BB%B7%E6%80%A7">软件与硬件的逻辑等价性</a></li>
 </ul>
 </li>
 </ul>
@@ -471,8 +475,8 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://holmecat.github.io/post/bian-yi-yuan-li-yin-lun">
-      编译原理 引论
+    <a class="post-title-link" href="https://holmecat.github.io/post/ji-suan-ji-zu-cheng-yuan-li-xi-tong-gai-lun">
+      计算机组成原理 系统概论
     </a>
   </h1>
   <div class="post-meta">
@@ -480,159 +484,111 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-02-11</span>
+      <span>2020-02-25</span>
     </span>
-    
-      <span class="meta-item">
-        <span class="post-meta-divider pc-show">|</span>
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://holmecat.github.io/tag/OTBbsSNiI">
-              <span>编译原理</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>6分钟</span>
+      <span>4分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1742<span class="pc-show">字数</span></span>
+      <span>1082<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <p>中国大学MOOC 国防科技大学 编译原理自制简单笔记+思考</p>
+                <p>大三下补修大二下专业课，笔记作为考研和期末复习用<br>
+没有跟唐书，还是用的白中英老师的书，计组很难请多关照<br>
+计算机专业核心基础课之一，计算机组成与结构</p>
 <!-- more -->
-<h1 id="什么是编译-compile">什么是编译 Compile</h1>
-<p>说白了，电脑读不懂C++啊Java啊Python啊，他只知道读0和1的机器码，或者一些中低级语言<br>
-平常用IDE其实已经执行了编译这一步，没有IDE的时候，就要自己手动编译链接<br>
-把常用的高级语言翻译成计算机读得懂的低级语言，这就叫编译</p>
-<h1 id="编译器和解释器的区别-compiler-and-interpreter">编译器和解释器的区别 Compiler and Interpreter</h1>
+<h1 id="计算机的分类">计算机的分类</h1>
 <ul>
-<li>编译器：是翻译人员，把内容翻译了然后存下来，成为中间代码文件。然后计算机再拿过去自己读，自己执行，也就是跑程序了</li>
-<li>解释器：是同声传译，计算机戴着个耳机听实时的机器码然后执行。 不需要自己去读，也没有中间文件可以读，理论上听完了，计算机也就执行完了</li>
+<li>模拟计算机：对应模拟运算，变量为连续量（电压电流）。有机械和电子的模拟计算机。</li>
+<li>电子数字计算机：对应数字运算，变量为0-1离散量。由程序控制，精度、抗干扰性、数据存储量，逻辑判断等计算机性能指标均远好于前者。<br>
+总的来说，后者相较前者有很大提升，1970年代之后模拟的就慢慢被淘汰了。</li>
 </ul>
-<h1 id="计算思维-computational-thinking">计算思维 Computational Thinking</h1>
-<p>运用计算机科学的基础概念去求解问题，设计系统和理解人类的行为<br>
-编译原理主要应用的思想：<strong>抽象，自动化，分解，递归，权衡</strong></p>
-<h1 id="抽象-图灵机">抽象-图灵机</h1>
-<p>图灵提出的一个数学模型，个人简单理解是将计算机科学中输入-处理-输出这样的框架进行了严格定义</p>
+<h2 id="电子数字计算机的分类">电子数字计算机的分类</h2>
 <ul>
-<li>一条无限长的纸带（输入）</li>
-<li>一个读写头（接收输入，进行输出）</li>
-<li>一个状态寄存器（自身状态属性）</li>
-<li>一套控制读写头工作的规则（处理）</li>
+<li>专用计算机：也就是定制的，有效经济，适应性差，适用在某一领域。</li>
+<li>通用计算机：同上相反，属于普通使用的计算机。</li>
 </ul>
-<h1 id="邱奇-图灵问题-the-church-turing-thesis">邱奇-图灵问题 The Church-Turing thesis</h1>
-<p><strong>所有计算或算法都可以由一台图灵机来执行</strong></p>
-<h1 id="编译过程">编译过程</h1>
-<p>词法分析-&gt;语法分析-&gt;语义分析&amp;中间代码生成-&gt;优化-&gt;目标代码产生</p>
-<h2 id="词法分析">词法分析</h2>
+<h1 id="计算机发展简史">计算机发展简史</h1>
+<h2 id="一-计算机的五代变化">一、计算机的五代变化</h2>
 <ul>
-<li>任务：输入源程序字符串，扫描分解，识别出单词符号</li>
-<li>依据：构词规则</li>
-<li>描述工具：有限自动机</li>
-<li>输出：识别后的单词符号串</li>
+<li>1946-1957 电子管：数据处理。ENIAC，冯·诺依曼模型。</li>
+<li>1958-1964 晶体管：工业控制。摩尔定律：18个月性能翻倍，价格减半。</li>
+<li>1965-1971 中小规模集成电路：小型。</li>
+<li>1972-1990 大/超大规模集成电路：微型。</li>
+<li>1991- 巨大规模集成电路：单片机。</li>
 </ul>
-<h2 id="语法分析">语法分析</h2>
+<h2 id="二-半导体存储器的发展">二、半导体存储器的发展</h2>
+<pre><code>伴随着半导体技术发展而性能提升，体积变小等。
+</code></pre>
+<h2 id="三-微处理器的发展">三、微处理器的发展</h2>
+<pre><code>1971 Intel 4004
+1972 Intel 8008 8位微处理器
+1974 Intel 8080 通用微处理器
+1970末期，通用16位微处理器8086
+1985 Intel 80386 32位微处理器
+如今使用的是64位的处理器和多核处理器
+</code></pre>
+<h2 id="四-计算机的性能指标">四、计算机的性能指标</h2>
 <ul>
-<li>任务：在词法分析基础上，输入识别出的各类单词符号，分解成各类语法单位</li>
-<li>依据：语法规则</li>
-<li>描述工具：上下文无关文法</li>
-<li>输出：各类语法单位</li>
+<li><strong>吞吐量（信息量）</strong>：字节/秒</li>
+<li><strong>响应时间（从输入有效到系统产生响应的时间度量）</strong>： 微秒/纳秒</li>
+<li><strong>利用率（占用比率）</strong>：百分比</li>
+<li><strong>处理机字长</strong>：一次能够完成的二进制运算位数</li>
+<li><strong>总线宽度</strong>：内部总线二进制位数</li>
+<li><strong>存储器容量</strong>：单位是KB,MB,GB,TB,PB这些</li>
+<li><strong>存储器带宽</strong>：读取速率，字节/秒</li>
+<li><strong>主频/时钟周期（工作节拍）</strong>：主频为MHz/GHz，倒数就是时钟周期，μs/ns</li>
+<li><strong>CPU执行时间</strong>：CPU执行时间 = CPU时钟周期数 × CPU时钟周期</li>
+<li><strong>CPI（平均周期数）</strong>：CPI = 某程序CPU时钟周期数 ÷ 某程序指令条数</li>
+<li><strong>MIPS（Million Instructions Per Second）</strong>：MIPS = 指令数 ÷（程序执行时间 × 10 ^ 6）</li>
+<li><strong>FLOPS（浮点操作性能）</strong>：FLOPS = 浮点操作数 ÷ 程序执行时间(s)</li>
 </ul>
-<h2 id="中间代码生成">中间代码生成</h2>
+<h1 id="计算机硬件">计算机硬件</h1>
+<h2 id="硬件的组成要素">硬件的组成要素</h2>
+<p>存储器，运算器，输入输出设备，控制器</p>
+<h2 id="数字计算机基本组成">数字计算机基本组成</h2>
+<p>冯诺依曼型思想：存储程序，按地址自动执行<br>
+五大部件：即硬件的组成要素，控制运算存储输入输出。</p>
+<h3 id="运算器">运算器</h3>
+<p>功能：处理算术逻辑运算<br>
+特点：二进制运算，字长决定精度和能力<br>
+主要由ALU和各类通用寄存器构成</p>
+<h3 id="存储器">存储器</h3>
+<p>功能：保存程序和数据<br>
+特点：二进制，按照存储单元组织</p>
 <ul>
-<li>任务：在语法分析基础上，输入各类语法单位，进行初步翻译</li>
-<li>依据：语义规则</li>
-<li>描述工具：属性文法</li>
-<li>中间代码：三元式，四元式，树。。。</li>
+<li>相关概念：存储单元，地址，存储容量，外存储器（磁盘），内存储器（半导体存储器）</li>
 </ul>
-<h2 id="优化">优化</h2>
+<h3 id="控制器">控制器</h3>
+<p>功能：依照指令发送控制命令，协调各部件</p>
 <ul>
-<li>任务：在中间代码生成的基础上，进行加工变换</li>
-<li>依据：等价变换规则</li>
+<li>相关概念：指令（指令码/操作码），冯诺依曼结构/哈佛结构，取指/执行周期等。</li>
 </ul>
-<p>通俗来说，可以优化一些不必要执行的语句<br>
-比如循环内有一句和循环次数无关的句子，就没必要放在循环里面</p>
-<h2 id="目标代码产生">目标代码产生</h2>
+<h3 id="适配器与输入输出设备">适配器与输入输出设备</h3>
+<p>输入/输出设备：转换人熟悉的信息形式和机器内部所能接收和识别的二进制信息形式<br>
+适配器：保证外围设备用计算机系统特性所要求的形式发送或接收信息<br>
+系统总线：是构成计算机系统的骨架，多个系统部件之间进行数据传送的公共通路</p>
+<h1 id="计算机软件">计算机软件</h1>
+<p>计算机软件 = 程序 + 数据 + 文档<br>
+大体分为系统软件和应用软件，细节不列了。</p>
+<h1 id="计算机系统的层次结构">计算机系统的层次结构</h1>
+<h2 id="五级结构">五级结构</h2>
 <ul>
-<li>任务：</li>
-<li>依据：硬件系统结构和机器指令的含义</li>
-<li>目标代码的三种形式：
-<ul>
-<li>汇编指令代码：需要进行汇编</li>
-<li>绝对指令代码：可直接运行</li>
-<li>可重新定位指令代码：需要<strong>链接！</strong></li>
+<li>微程序设计级/逻辑电路级</li>
+<li>一般机器级</li>
+<li>操作系统级</li>
+<li>汇编语言级</li>
+<li>高级语言级别</li>
 </ul>
-</li>
-</ul>
-<h1 id="编译程序的结构">编译程序的结构</h1>
-<h2 id="总框">总框</h2>
-<p>每一个编译过程都有一个程序或者说是功能模块来处理</p>
-<ul>
-<li>词法分析器</li>
-<li>语法分析器</li>
-<li>语义分析与中间代码生成器</li>
-<li>优化段</li>
-<li>目标代码生成器</li>
-</ul>
-<p>加上符号表管理和出错处理</p>
-<h2 id="出错处理">出错处理</h2>
-<p>出错处理程序：发现源程序中的错误，报告给使用者<br>
-语法/语义错误：不符合语法/语义规则的相关错误</p>
-<h2 id="概念遍-pass">概念：遍 Pass</h2>
-<p>就是遍历的遍，对源程序或者中间表示从头到尾扫描一遍<br>
-阶段和遍不一样的，一遍可以包含几个阶段的操作<br>
-同时反过来也可以，一个阶段也可以用很多遍来做完</p>
-<h2 id="编译前端和后端">编译前端和后端</h2>
-<p>这里只是说编译程序而已，不要和日常所谓的前后端混淆<br>
-前端：词法分析，语法分析，中间代码生成，非机器相关优化<br>
-后端：机器相关优化，目标代码产生<br>
-说白了就是拆分成两块，这样可以降低耦合度，方便移植到不同机器上</p>
-<h1 id="编译程序的生成">编译程序的生成</h1>
-<p>编译程序本身也是程序，这一开始感觉有点像鸡生蛋还是蛋生鸡的问题<br>
-如把编译程序给写出来呢，很简单，回溯到最开头，机器码是不用编译的<br>
-所以对于机器码以外的语言，大佬的话直接机器语言或者汇编语言来编写，这里是弱鸡，不存在的</p>
-<h2 id="高级语言书写">高级语言书写</h2>
-<p>那么弱鸡的话呢，就用高级语言来写，这有点像递归翻译，目标就是翻译成祖宗<br>
-好比说我现有1，2，3，4号语言，我创造了5号语言，写了个程序把5号翻译成祖宗<br>
-然而，负责翻译的这个程序，本身也需要被翻译，于是套娃开始<br>
-4号的编译器是用3号写的，3号是用2号写的，2号是用1号写的<br>
-1号可比较硬核，直接用祖宗来翻译成祖宗<br>
-最后编译程序也找到祖宗了，他们是机器语言<s>和汇编语言</s>，计算机只认识祖宗而已<br>
-此处的1号或许是汇编语言，2号可以是Pascal或者C，3号有可能是Java。。。。。。<br>
-站在巨人的肩膀上，看似创造了5号语言，其实就是套了层皮<br>
-如果5号语言没啥创新的话，也就那样了。</p>
-<h2 id="移植">移植</h2>
-<p>构造同一个语言在不同机器上的编译程序<br>
-核心思想是利用编译器的置换和迭代，进行一个交叉翻译<br>
-移植过程：两台机器的机器码目前设为不同的A和B，以下建议跟着作流程图食用</p>
-<ul>
-<li>创造人能方便点用的L语言</li>
-<li>编写A版本P1，A版本P1可以把L翻译成A。本文目标是弄个B版本P1放在B机器上运行。</li>
-<li>编写L版本P2，L版本P2可以把L翻译成B，有点感觉是我 翻 我 自 己</li>
-<li>此时，A版本P1当然可以把L版本P2翻译成A版本P2，功能等价，A版本P2也可以把L翻译成B</li>
-<li>那么就很简单了，在A机器上，输入L版本P2，由A版本P2来翻译，得到的是什么呢</li>
-<li>是B版本的P2，问题解决</li>
-</ul>
-<h2 id="自编译">自编译</h2>
-<p>其实是高级语言书写的自我套娃版本<br>
-比如你需要DALAO语言，DALAO为C++和Java的组合<br>
-默认只有C++的编译器，那么可以用C++来写C++和Java的编译器<br>
-这个编译器是一个扩展，既能编译自己，又加入了Java<br>
-于是DALAO语言也有编译器了<br>
-一般来说这里的不是C++和Java，而是DALAO的某一个子集，同理<br>
-我 编 我 自 己</p>
+<h2 id="软件与硬件的逻辑等价性">软件与硬件的逻辑等价性</h2>
+<p>固件思想</p>
 
               </div>
               <div class="post-footer">
@@ -643,7 +599,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://holmecat.github.io/post/bian-yi-yuan-li-yin-lun" title="编译原理 引论">编译原理 引论</a>
+      <a href="https://holmecat.github.io/post/ji-suan-ji-zu-cheng-yuan-li-xi-tong-gai-lun" title="计算机组成原理 系统概论">计算机组成原理 系统概论</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -652,21 +608,19 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
-      <a href="https://holmecat.github.io/tag/OTBbsSNiI"># 编译原理</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="编译原理 高级程序设计语言" href="https://holmecat.github.io/post/bian-yi-yuan-li-gao-ji-cheng-xu-she-ji-yu-yan">编译原理 高级程序设计语言</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="编译原理 高级程序设计语言" href="https://holmecat.github.io/post/bian-yi-yuan-li-gao-ji-cheng-xu-she-ji-yu-yan">上一篇</a>
+        <a class="nav-pc-next" title="应用密码学 密码学概述" href="https://holmecat.github.io/post/ying-yong-mi-ma-xue-mi-ma-xue-gai-shu">应用密码学 密码学概述</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="应用密码学 密码学概述" href="https://holmecat.github.io/post/ying-yong-mi-ma-xue-mi-ma-xue-gai-shu">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="C++ 北大MOOC综合大作业" href="https://holmecat.github.io/post/c-bei-da-mooc-zong-he-da-zuo-ye">C++ 北大MOOC综合大作业</a>
-        <a class="nav-mobile-next" title="C++ 北大MOOC综合大作业" href="https://holmecat.github.io/post/c-bei-da-mooc-zong-he-da-zuo-ye">下一篇</a>
+        <a class="nav-pc-next" title="编译原理 高级程序设计语言" href="https://holmecat.github.io/post/bian-yi-yuan-li-gao-ji-cheng-xu-she-ji-yu-yan">编译原理 高级程序设计语言</a>
+        <a class="nav-mobile-next" title="编译原理 高级程序设计语言" href="https://holmecat.github.io/post/bian-yi-yuan-li-gao-ji-cheng-xu-she-ji-yu-yan">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
