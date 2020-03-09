@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Unity C# Survival Guide | 福尔摩猫</title>
+<meta name="keywords" content="Gridea静态个人博客">
+<meta name="description" content="一个随便学习的卑微颓废">
+<link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1583770263228">
+<link rel="stylesheet" href="https://holmecat.github.io//styles/main.css">
+
+<link rel="stylesheet" href="/media/css/gemini.css">
+
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+<link href="/media/hljs/styles/androidstudio.css" rel="stylesheet">  
+<script src="/media/hljs/highlight.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+    <meta name="description" content="Unity C# Survival Guide" />
+    <meta name="keywords" content="Unity" />
+  </head>
+  <body>
+    <div class="head-top-line"></div>
+    <div class="header-box">
+      
+<div class=" gemini">
+  <header class="header bg-color ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>福尔摩猫</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">一个懒惰的肥宅拖拉怪</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            <li class="nav-item ">
+              
+                <a href="https://holmecat.github.io/">
+                  <i class="fa fa-globe"></i> 膜猫
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+                <a href="https://holmecat.github.io/archives">
+                  <i class="fa fa-globe"></i> 归档
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+                <a href="https://holmecat.github.io/tags">
+                  <i class="fa fa-globe"></i> 传送门
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+                <a href="https://holmecat.github.io/post/guan-yu-fu-er-mo-mao">
+                  <i class="fa fa-globe"></i> 关于
+                </a>
+              
+            </li>
+          
+          <li class="nav-item">
+            <a>
+              <i class="fa fa-search"></i> 搜索
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+    </div>
+    <div class="main-continer">
+      
+      <div class="section-layout gemini ">
+        <div class="section-layout-wrapper">
+          
+
+<div class="sidebar">
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          <div class="post-side-meta" id="post_side_meta">
+            
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="https://holmecat.github.io//images/avatar.png"/>
+    <p class="site-author-name">福尔摩猫</p>
+    <p class="site-description right-motion">今夜如此，夜夜皆然</p>
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">8</span>
+        <span class="site-item-stat-name">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">5</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">5</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+      <div class="sidebar-item" style="border-top: 1px dotted #ccc;">
+      </div>
+    
+  
+  <div class="sidebar-item sidebar-item-social">
+    <div class="social-item">
+      
+        <a href="https://github.com/HolmeCat">
+          <i class="fa github"></i> 福尔摩猫
+        </a>
+      
+      
+    </div>
+  </div>
+
+
+</div>
+          </div>
+          <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+            <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#quick-tips-and-assets-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">Quick Tips and Assets 快速开始</a></li>
+<li><a href="#rotations-%E7%89%A9%E4%BD%93%E6%97%8B%E8%BD%AC">Rotations 物体旋转</a>
+<ul>
+<li><a href="#slerpspherical-linear-interpolation%E7%90%83%E5%BD%A2%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BC%E6%84%8F%E6%80%9D%E6%98%AF%E7%AC%A6%E5%90%88%E4%B8%80%E5%AE%9A%E7%9A%84%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BC%E6%B3%95%E4%BD%BF%E5%BE%97%E6%97%8B%E8%BD%AC%E6%9C%89%E6%B8%90%E8%BF%9B%E6%80%A7%E5%85%89%E6%BB%91%E6%9B%B2%E9%9D%A2%E5%9C%B0%E7%BC%93%E6%85%A2%E7%A7%BB%E5%8A%A8api%E4%B8%BA">Slerp(Spherical linear interpolation)：球形线性插值，意思是符合一定的数学线性插值法，使得旋转有渐进性，光滑曲面地缓慢移动，API为：</a></li>
+</ul>
+</li>
+<li><a href="#variables-%E5%8F%98%E9%87%8F%E4%BB%8E%E6%AD%A4%E5%BC%80%E5%A7%8B%E6%98%AFc">Variables 变量（从此开始是C#）</a></li>
+<li><a href="#if-statements-%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E8%AF%AD%E6%B3%95if">If Statements 条件判断语法if</a></li>
+<li><a href="#switch-statements-%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E8%AF%AD%E6%B3%95switch">Switch Statements 条件判断语法switch</a></li>
+<li><a href="#loops-%E5%BE%AA%E7%8E%AF%E8%AF%AD%E6%B3%95">Loops 循环语法</a></li>
+<li><a href="#arrays-%E6%95%B0%E7%BB%84">Arrays 数组</a></li>
+<li><a href="#functions-and-methods-%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95">Functions and Methods 函数和方法</a></li>
+<li><a href="#classes-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1">Classes 类与对象</a>
+<ul>
+<li><a href="#monobehaviour-class-%E8%A1%8C%E4%B8%BA%E7%B1%BB">MonoBehaviour Class 行为类</a></li>
+<li><a href="#custom-class-%E5%AE%9A%E5%88%B6%E7%B1%BB">Custom Class 定制类</a></li>
+<li><a href="#%E8%A1%A8%E6%A0%BC%E5%AF%B9%E6%AF%94%E5%A6%82%E4%B8%8B">表格对比如下</a></li>
+<li><a href="#%E7%B1%BB%E6%88%90%E5%91%98%E5%8F%AF%E8%A7%86%E5%8C%96">类成员可视化</a></li>
+<li><a href="#%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90">访问权限</a></li>
+<li><a href="#%E8%99%9A%E5%87%BD%E6%95%B0%E5%92%8C%E9%87%8D%E5%86%99">虚函数和重写</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E4%BD%93">结构体</a></li>
+</ul>
+</li>
+<li><a href="#static-types-%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B">Static Types 静态类型</a></li>
+<li><a href="#properties-%E5%B1%9E%E6%80%A7">Properties 属性</a></li>
+<li><a href="#namespaces-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">Namespaces 命名空间</a></li>
+<li><a href="#lists-%E7%BA%BF%E6%80%A7%E8%A1%A8">Lists 线性表</a></li>
+<li><a href="#enums-%E6%9E%9A%E4%B8%BE">Enums 枚举</a></li>
+<li><a href="#dictionary-%E6%98%A0%E5%B0%84%E9%9B%86%E5%90%88%E5%AD%97%E5%85%B8">Dictionary 映射集合（字典）</a></li>
+<li><a href="#abstract-classes-%E6%8A%BD%E8%B1%A1%E7%B1%BB">Abstract Classes 抽象类</a></li>
+<li><a href="#delegates-and-events-%E5%A7%94%E6%89%98%E5%92%8C%E4%BA%8B%E4%BB%B6">Delegates and Events 委托和事件</a></li>
+<li><a href="#linq-linq%E6%A8%A1%E5%9D%97%E6%95%B0%E6%8D%AE%E5%BA%93">Linq LINQ模块（数据库）</a></li>
+<li><a href="#singletons">Singletons</a></li>
+<li><a href="#objectpools">ObjectPools</a></li>
+<li><a href="#command-pattern">Command Pattern</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    lList.push(elem);
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        if (autoNumber) {
+          cur.text =  deep + ' ' + cur.text;
+        }
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+    if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+    } else if (tocWrapper.classList.contains('no_compress')){
+      tocContent.classList.add('expanded');
+    } else {
+      if (hList.length > 10) {
+        active = 'active-hidden'
+        tocContent.classList.add('closed');
+      } else {
+        tocContent.classList.add('expanded');
+      }
+    }
+  }
+}
+addTocNumber(tocContent, '');
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+          </div>
+        
+      </div>
+    </div>
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+
+  if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+    let hasFix = false;
+    let scrollEl = document.querySelector('.main-continer');
+    let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+    window.addEventListener('scroll', function(e) {
+    if (document.scrollingElement.scrollTop >= limitTop) {
+      if (!hasFix) {
+        sidebar.classList.add('sidebar-fixed');
+        hasFix = true;
+      }
+    } else {
+      if (hasFix) {
+        sidebar.classList.remove('sidebar-fixed');
+        hasFix = false;
+      }
+    }
+  });
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <div class="article-box">
+    <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://holmecat.github.io/post/unity-c-survival-guide">
+      Unity C# Survival Guide
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2020-02-09</span>
+    </span>
+    
+      <span class="meta-item">
+        <span class="post-meta-divider pc-show">|</span>
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://holmecat.github.io/tag/tqOmDUZ5M">
+              <span>Unity</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>13分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>3552<span class="pc-show">字数</span></span>
+    </span>
+  </div>
+</header>
+</div>
+              <div class="post-body next-md-body" id="post_body">
+                <p>Unity3D官方代码教程Survival Guide相关笔记<br>
+根据官方教程顺序记录，作者有长时间学习C#经验，不会写全，只针对较难点进行细写，仅供参考<br>
+并不是太注重语法细节，重要的还是理解用法和原理，语法细节查菜鸟教程或者API都是很快的<br>
+前两章基本上是在Unity的API当中可以查到相关的，后面的C#知识在微软的技术文档中能查到</p>
+<!-- more -->
+<ul>
+<li>
+<h1 id="quick-tips-and-assets-快速开始">Quick Tips and Assets 快速开始</h1>
+<p>改变物体位置：transform.x/y/z<br>
+输入：Input.getKeyDown，Input.getAxis<br>
+移动物体：transform.Translate(位移向量Vector3 * 速度 * Time.deltaTime)<br>
+实例化/销毁物体：Instantiate/Destroy<br>
+暂停游戏：Time.timescale设置为0-1之间<br>
+Console Debug：Debug.Log();<br>
+PS：团队合作和Assets部分比较特殊，未作记录</p>
+</li>
+<li>
+<h1 id="rotations-物体旋转">Rotations 物体旋转</h1>
+<p>Euler Angle：欧拉角，物体关于x，y，z轴旋转的角度<br>
+Quaternions：四元数，物体旋转的描述数(x,y,z,w)<br>
+Gimbal Lock：万向节死锁，按照动态欧拉角（环架）体系旋转时，物体旋转后出现的坐标轴重叠导致损失一个方向上的自由度。避免出现该锁问题的方法就是利用四元数来表示旋转。<br>
+Quaternions.identity：常量，表示没有旋转，即四元数为（0，0，0，0）<br>
+Quaternions.LookRotation：物体正方向forward面向指定Vector3向量<br>
+Debug.DrawRay：Debug手段，画出一条射线，可以指定Color类颜色常量</p>
+<h2 id="slerpspherical-linear-interpolation球形线性插值意思是符合一定的数学线性插值法使得旋转有渐进性光滑曲面地缓慢移动api为">Slerp(Spherical linear interpolation)：球形线性插值，意思是符合一定的数学线性插值法，使得旋转有渐进性，光滑曲面地缓慢移动，API为：</h2>
+<pre><code>  Quaternions.Slerp(四元数起点，四元数终点，时间浮点数（通常是Time.deltaTime）)
+</code></pre>
+</li>
+<li>
+<h1 id="variables-变量从此开始是c">Variables 变量（从此开始是C#）</h1>
+<p>变量就是程序存储数据所开辟的空间，通过名字来访问和使用。<br>
+例子：<code>public int a = 5;</code>声明了一个公共权限的int整数型变量a，并且初始化为5。<br>
+基本上，C#的变量与C家族和Java等基本相同，具体细节类型type可以查阅API。类型分为值类型和引用类型。简单独立预设的类型都是值类型比如int，char这些基础的。根据类来创建的对象类型，即类型名为类名的变量都属于引用类型。比如C#预设的Double类就是double的封装类，就是引用类型，注意区别大小写。注意string也是引用类型。后文涉及内存管理会详述。<br>
+Visual Studio当中，一般来说值类型蓝色高亮，引用类型绿色高亮，string和struct是例外。<br>
+在Unity当中，类型type也可以是unity组件类的对象类型，比如GameObject，Transform等。它们作为类的对象类型都是引用类型。<br>
+Mathf.Round：数学库函数，截取整数部分，可以通过乘除10的多少次方控制处理有多少位小数.</p>
+</li>
+<li>
+<h1 id="if-statements-条件判断语法if">If Statements 条件判断语法if</h1>
+</li>
+<li>
+<h1 id="switch-statements-条件判断语法switch">Switch Statements 条件判断语法switch</h1>
+</li>
+<li>
+<h1 id="loops-循环语法">Loops 循环语法</h1>
+</li>
+<li>
+<h1 id="arrays-数组">Arrays 数组</h1>
+</li>
+<li>
+<h1 id="functions-and-methods-函数和方法">Functions and Methods 函数和方法</h1>
+</li>
+<li>
+<h1 id="classes-类与对象">Classes 类与对象</h1>
+<p>首先，要记住，C#采用的是OOP模式，也就是说它是一门面向对象的程序语言<br>
+接下来，解析类与对象各概念模块</p>
+</li>
+<li>
+<h2 id="monobehaviour-class-行为类">MonoBehaviour Class 行为类</h2>
+<p>所有和Unity场景当中物体相关的，涉及到继承使用Unity引擎环境提供的MonoBehaviour类相关API的类，就称为行为类。一句话概括就是，只要这个代码涉及到了任何Unity游戏引擎里面的东西，就要继承MonoBehaviour类才能开展相关操作。一般需要在游戏场景中实例化，进行各种活动的物体，就需要挂载这类脚本。比如你让游戏内物体移动，受一个力等。Unity引擎环境和微软C#语言的联系就在这么个MonoBehaviour上。<br>
+语法上，首先是引入命名空间UnityEngine以及继承MonoBehaviour类。在游戏引擎内创建脚本都会这么自动生成，如果要写定制类就手动删了吧。其次是还会自动生成两个函数start和update，简单来说行为类的初始化不写构造函数的，因为是挂载在游戏物体上的。可以在start当中进行初始化，这样每当挂载的物体在场景内出现，就会调用一次这个函数。update则是start接力版，每一帧调用一次，可以做周期性逻辑控制和并行处理的东西，比如控制当达成什么条件就实时。。。发个任务。。。之类的。其他用法见API，比如update还有一个稳定版本叫做fixedupdate。读者如果接触过多线程生命周期这种的，这很类似，相当于每个行为类在场景中有它的生命周期。</p>
+</li>
+<li>
+<h2 id="custom-class-定制类">Custom Class 定制类</h2>
+<p>可以理解为设计者自定义的类所以叫做定制类，其实就是C#普通的类而已，为了和行为类区别开，也可以说是非行为类。设计者可以不用继承MonoBehaviour类（因为没有那个必要），专注于处理和场景以外的模块比如数据库操作，各种后台逻辑之类的。语法和C#类与对象完全一致。</p>
+</li>
+</ul>
+<h2 id="表格对比如下">表格对比如下</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模块</th>
+<th style="text-align:left">MonoBehaviour Class 行为类</th>
+<th style="text-align:left">Custom Class 定制类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">基本区别</td>
+<td style="text-align:left">行为类就是继承于UnityEngine提供的MonoBehaviour类，可以调用MonoBehaviour的API，一般用于挂载到游戏内的GameObject上，表示游戏物体行为</td>
+<td style="text-align:left">定制类其实就是取了个高大上的叫法而已，就是指C#的常规类，不直接或者间接继承MonoBehaviour的类</td>
+</tr>
+<tr>
+<td style="text-align:left">初始化</td>
+<td style="text-align:left">不需要构造函数，自动生成start函数（和update函数），可以在其中进行初始化</td>
+<td style="text-align:left">C#构造函数语法 [public][类名] 后接(参数)和{代码段}，没有返回值</td>
+</tr>
+<tr>
+<td style="text-align:left">实例化</td>
+<td style="text-align:left">将代码文件挂载，也就是拖动到检视面板目标物体上</td>
+<td style="text-align:left">C#动态创建对象，语法为new 类名()；</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<h2 id="类成员可视化">类成员可视化</h2>
+[SerializeField]和[Syetem.Serializable]：属于一种C#特性，可使得变量或者类成员在检视面板可视化+直接手动赋值。前者针对行为继承类的变量，后者针对定制类。因为行为继承类默认可视化，但它的成员不是；public的变量都默认可视化。</li>
+<li>
+<h2 id="访问权限">访问权限</h2>
+一个基础概念补充，一般出于方便，权限用public或者private，但是还有一种是protected，这样那些相关继承类都可以访问得到，基本理解就是介于上述两者之间的一种部分权限开放。</li>
+<li>
+<h2 id="虚函数和重写">虚函数和重写</h2>
+虚函数virtual，意味着子类可以重写；重写override，意味着重写实现了基类的虚函数</li>
+<li>
+<h2 id="结构体">结构体</h2>
+关于结构体和数据类型，在C#当中和C++一样，结构体和类都是可以使用的（Java没有结构体），前者属于值类型存储在Stack栈上，注重存储性能；类的对象属于引用类型存储在Heap堆上，注重功能完善。值类型就是比较基础的，主要作为数据存在，比如所有基础数据类型和结构体。引用类型就是值类型和函数方法的组合型，作为类与对象的实践，它是指针思想的继承者，因为多数情况下比较大，所以通过引用来节约拷贝空间。结构体语法和类基本一致，关键字为struct。值类型和引用类型的语法区别则是，是否需要new来申请空间（值类型也可以动态new，但是不new也会开辟空间）。</li>
+<li>
+<h1 id="static-types-静态类型">Static Types 静态类型</h1>
+关于静态类型，教程本身没有很长的介绍，以下简述使用思路和语法技术要点<br>
+类似于C++，C#的静态类型就是存在于类当中的固件，只要整个程序在运行，它们都将存在，因为本质上静态类型的变量和方法是在堆上面申请的空间，因此将一直存在直到整个程序结束。所以它们具有着“独一份”的特质，因此不会也不能被实例化。类当中的静态成员将被每个对象共享，其实可以理解为静态成员在另一个次元，没有生老病死2333。<br>
+我们可以利用这一特性进行很多方便的设计。首先明确，类，变量，函数都可以是静态的。静态的类是那种工具类；静态变量可以用来记录那种全局数据，比如说成就之类的，其实很多常规数据用这个也更加清晰切容易访问；静态函数我将其称为“上帝操作”，典型的就是进行系统消息提示，可以将这个功能写成一个静态函数，参数是消息。这样在任何地方需要消息输出，直接用就可以了。<br>
+语法上就是在（返回）类型之前增加一个static修饰符。例如<code>public static int a;</code>。<br>
+静态变量的初始化，可以直接赋值，但是建议在对应的类当中实现静态构造函数，例如<code>static A{}</code>;其实呢就是说把构造函数的public换成了static。然后在这个翻版的构造函数当中处理所有静态东西。<br>
+注意：静态类当中不能有非静态成员，因为它不会被实例化；静态函数当中也不能访问调用任何非静态成员；静态变量需要被初始化好。</li>
+<li>
+<h1 id="properties-属性">Properties 属性</h1>
+简单来说，属性是变量的一种扩展形式，关注到了“访问权限”。<br>
+在C++和C#当中，都有public或者private这种来进行权限管理，这是一个办法，但这是很简单的控制可不可以访问。而我们经常遇到一些特殊访问控制，比如增加HP但不可以超过上限，超过就溢出的处理。这时候就是属性工作的时候了。<br>
+以前做数据结构ADT题的时候，C++建议把成员变量声明为private，然后通过函数才可以访问。C#的属性其实就是组合了一下这些，成为了一个语法糖。示例如下：</li>
+</ul>
+<pre><code class="language-csharp">public class Elf{ // 精灵类
+    private int hp; //真正的HP变量，private存数据
+    public int HP{ // 属性，变量的外壳，控制访问
+        get{ //读
+            return hp; 
+        }
+        set{ //写，hp上限设定为30，下限设定为0
+            if(hp + value &gt; 30) hp = 30;
+            else if(hp + value &lt; 0) hp = 0;
+            else hp += value;
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>
+<h1 id="namespaces-命名空间">Namespaces 命名空间</h1>
+<p>在C++当中也存在了，Java当中则是那些库或者package包，在C#当中基本完全充当了头文件的作用，封装了预设的代码，同时为了避免重名相当于加了看不见的前缀名。<br>
+关键字：创建<code>namespace [空间名] {代码}</code>；使用<code>using namespace [空间名]</code>;<br>
+在开发的时候可以用来开发工具类代码，增强多人协作的操作性和软件复用度。往往研发岗实现功能后可以将研发的代码写在一个命名空间内，然后交付开发人员使用它来开发。<br>
+C#自带的命名空间有像最基础自动生成的两个System.Collections和Genetics，基本覆盖基础语法功能和一些高级设计技巧组件比如泛型和集合框架，一些基础数据结构和算法等。<br>
+Unity自带的命名空间有像最基础默认的UnityEngine用来支持引擎提供的MonoBehaviour,即代码文件开头自动生成<code>using namespace UnityEngine;</code>，再多举个常用例子比如UnityEngine.UI是支持引擎内UI的。</p>
+</li>
+<li>
+<h1 id="lists-线性表">Lists 线性表</h1>
+</li>
+<li>
+<h1 id="enums-枚举">Enums 枚举</h1>
+<p>C家族语言枚举就是限定了范围的一种特殊变量，比如说性别只能是男或者女或者未知三种。本质是一个小的常量集合。使用的时候，可以通过每个常量的名字访问。<br>
+要获取它们的整型数值，需要强制类型转换成int。</p>
+</li>
+<li>
+<h1 id="dictionary-映射集合字典">Dictionary 映射集合（字典）</h1>
+</li>
+<li>
+<h1 id="abstract-classes-抽象类">Abstract Classes 抽象类</h1>
+</li>
+<li>
+<h1 id="delegates-and-events-委托和事件">Delegates and Events 委托和事件</h1>
+</li>
+<li>
+<h1 id="linq-linq模块数据库">Linq LINQ模块（数据库）</h1>
+<p>Linq是微软在C#当中提供的一种数据库便利操作，就是避免去写SQL而是通过函数设置参数来查找。Java当中也是有如此设定的，例如安卓移动开发和JPA中都有。<br>
+使用之前需要引入命名空间System.Linq<br>
+预设现在有了一个集合类型<code>var test;</code>，这里的var是动态类型，实际使用时不确定的话可以是var，也可以是数组，列表等集合类型。Linq相关函数的调用方法并不是直接写名字，而是写集合名字.函数名，返回的就是操作结果。比如说any函数，那就是通过test.any的方式调用，返回的就是对应结果。<br>
+Any：参数为Lambda表达式指定条件，返回bool类型，表示是否有任何一个满足条件的了结果。<br>
+Contains：参数为string字符串，返回bool类型，表示集合是否包含参数。<br>
+Distinct：没有参数，返回还是一个集合类型，将原来集合当中重复元素去除后得到的集合，即“去重”。SQL语言当中查询结果也有distinct关键字，道理差不多。<br>
+Where：参数为Lambda表达式指定条件，返回还是一个集合类型，也就是对应SQL的where条件查询语句，将所有符合条件的元素查找出来。<br>
+OrderBy：按升序对序列的元素进行排序。<br>
+OrderByDescending：按降序对序列的元素排序。<br>
+ThenBy：按升序对序列中的元素执行后续排序。<br>
+ThenByDescending：按降序对序列中的元素执行后续排序。<br>
+Reverse：反转序列中元素的顺序。<br>
+Average：求平均数。</p>
+<p>其他更多函数和教程可以通过IDE语法功能或者查API。</p>
+</li>
+<li>
+<h1 id="singletons">Singletons</h1>
+</li>
+<li>
+<h1 id="objectpools">ObjectPools</h1>
+</li>
+<li>
+<h1 id="command-pattern">Command Pattern</h1>
+</li>
+</ul>
+
+              </div>
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      福尔摩猫
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://holmecat.github.io/post/unity-c-survival-guide" title="Unity C# Survival Guide">Unity C# Survival Guide</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://holmecat.github.io/tag/tqOmDUZ5M"># Unity</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="编译原理 引论" href="https://holmecat.github.io/post/bian-yi-yuan-li-yin-lun">编译原理 引论</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="编译原理 引论" href="https://holmecat.github.io/post/bian-yi-yuan-li-yin-lun">上一篇</a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="C++ 北大MOOC综合大作业" href="https://holmecat.github.io/post/c-bei-da-mooc-zong-he-da-zuo-ye">C++ 北大MOOC综合大作业</a>
+        <a class="nav-mobile-next" title="C++ 北大MOOC综合大作业" href="https://holmecat.github.io/post/c-bei-da-mooc-zong-he-da-zuo-ye">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      © 2019-2020 <i class="fa fa-heart"></i> HsxyHao
+    </div>
+    <div class="poweredby">
+      Powered by <a href="https://github.com/HolmeCat/HolmeCat.github.io">福尔摩猫</a>
+    </div>
+  </footer>
+  
+  
+  <div class="gemini back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+  back2TopText = document.querySelector('#back_to_top_text'),
+  drawerBox = document.querySelector('#drawer_box'),
+  rightSideBar = document.querySelector('.sidebar'),
+  viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+   
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function(e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+  
+  window.addEventListener('scroll', function(e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+  
+  let hasCacu = false;
+  window.onresize = function() {
+    if (window.width > 991) {
+      calcuHeight();
+    } else {
+      hasCacu = false;
+    }
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+  
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function() {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, transitionDir,{ });
+          }
+        })
+        window.Velocity(viewport, openProp,{
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function() {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp ,{
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+</script>
+    </div>
+  </body>
+  <script src="/media/js/motion.js"></script>
+</html>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://holmecat.github.io/</id>
     <title>福尔摩猫</title>
-    <updated>2020-03-09T09:55:03.808Z</updated>
+    <updated>2020-03-09T16:11:07.867Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://holmecat.github.io/"/>
     <link rel="self" href="https://holmecat.github.io/atom.xml"/>
@@ -547,6 +547,207 @@ G4(S):S→ab|aab；S→aSb|aaSb</li>
 于是DALAO语言也有编译器了<br>
 一般来说这里的不是C++和Java，而是DALAO的某一个子集，同理<br>
 我 编 我 自 己</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Unity C# Survival Guide]]></title>
+        <id>https://holmecat.github.io/post/unity-c-survival-guide</id>
+        <link href="https://holmecat.github.io/post/unity-c-survival-guide">
+        </link>
+        <updated>2020-02-09T04:51:18.000Z</updated>
+        <summary type="html"><![CDATA[<p>Unity3D官方代码教程Survival Guide相关笔记<br>
+根据官方教程顺序记录，作者有长时间学习C#经验，不会写全，只针对较难点进行细写，仅供参考<br>
+并不是太注重语法细节，重要的还是理解用法和原理，语法细节查菜鸟教程或者API都是很快的<br>
+前两章基本上是在Unity的API当中可以查到相关的，后面的C#知识在微软的技术文档中能查到</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Unity3D官方代码教程Survival Guide相关笔记<br>
+根据官方教程顺序记录，作者有长时间学习C#经验，不会写全，只针对较难点进行细写，仅供参考<br>
+并不是太注重语法细节，重要的还是理解用法和原理，语法细节查菜鸟教程或者API都是很快的<br>
+前两章基本上是在Unity的API当中可以查到相关的，后面的C#知识在微软的技术文档中能查到</p>
+<!-- more -->
+<ul>
+<li>
+<h1 id="quick-tips-and-assets-快速开始">Quick Tips and Assets 快速开始</h1>
+<p>改变物体位置：transform.x/y/z<br>
+输入：Input.getKeyDown，Input.getAxis<br>
+移动物体：transform.Translate(位移向量Vector3 * 速度 * Time.deltaTime)<br>
+实例化/销毁物体：Instantiate/Destroy<br>
+暂停游戏：Time.timescale设置为0-1之间<br>
+Console Debug：Debug.Log();<br>
+PS：团队合作和Assets部分比较特殊，未作记录</p>
+</li>
+<li>
+<h1 id="rotations-物体旋转">Rotations 物体旋转</h1>
+<p>Euler Angle：欧拉角，物体关于x，y，z轴旋转的角度<br>
+Quaternions：四元数，物体旋转的描述数(x,y,z,w)<br>
+Gimbal Lock：万向节死锁，按照动态欧拉角（环架）体系旋转时，物体旋转后出现的坐标轴重叠导致损失一个方向上的自由度。避免出现该锁问题的方法就是利用四元数来表示旋转。<br>
+Quaternions.identity：常量，表示没有旋转，即四元数为（0，0，0，0）<br>
+Quaternions.LookRotation：物体正方向forward面向指定Vector3向量<br>
+Debug.DrawRay：Debug手段，画出一条射线，可以指定Color类颜色常量</p>
+<h2 id="slerpspherical-linear-interpolation球形线性插值意思是符合一定的数学线性插值法使得旋转有渐进性光滑曲面地缓慢移动api为">Slerp(Spherical linear interpolation)：球形线性插值，意思是符合一定的数学线性插值法，使得旋转有渐进性，光滑曲面地缓慢移动，API为：</h2>
+<pre><code>  Quaternions.Slerp(四元数起点，四元数终点，时间浮点数（通常是Time.deltaTime）)
+</code></pre>
+</li>
+<li>
+<h1 id="variables-变量从此开始是c">Variables 变量（从此开始是C#）</h1>
+<p>变量就是程序存储数据所开辟的空间，通过名字来访问和使用。<br>
+例子：<code>public int a = 5;</code>声明了一个公共权限的int整数型变量a，并且初始化为5。<br>
+基本上，C#的变量与C家族和Java等基本相同，具体细节类型type可以查阅API。类型分为值类型和引用类型。简单独立预设的类型都是值类型比如int，char这些基础的。根据类来创建的对象类型，即类型名为类名的变量都属于引用类型。比如C#预设的Double类就是double的封装类，就是引用类型，注意区别大小写。注意string也是引用类型。后文涉及内存管理会详述。<br>
+Visual Studio当中，一般来说值类型蓝色高亮，引用类型绿色高亮，string和struct是例外。<br>
+在Unity当中，类型type也可以是unity组件类的对象类型，比如GameObject，Transform等。它们作为类的对象类型都是引用类型。<br>
+Mathf.Round：数学库函数，截取整数部分，可以通过乘除10的多少次方控制处理有多少位小数.</p>
+</li>
+<li>
+<h1 id="if-statements-条件判断语法if">If Statements 条件判断语法if</h1>
+</li>
+<li>
+<h1 id="switch-statements-条件判断语法switch">Switch Statements 条件判断语法switch</h1>
+</li>
+<li>
+<h1 id="loops-循环语法">Loops 循环语法</h1>
+</li>
+<li>
+<h1 id="arrays-数组">Arrays 数组</h1>
+</li>
+<li>
+<h1 id="functions-and-methods-函数和方法">Functions and Methods 函数和方法</h1>
+</li>
+<li>
+<h1 id="classes-类与对象">Classes 类与对象</h1>
+<p>首先，要记住，C#采用的是OOP模式，也就是说它是一门面向对象的程序语言<br>
+接下来，解析类与对象各概念模块</p>
+</li>
+<li>
+<h2 id="monobehaviour-class-行为类">MonoBehaviour Class 行为类</h2>
+<p>所有和Unity场景当中物体相关的，涉及到继承使用Unity引擎环境提供的MonoBehaviour类相关API的类，就称为行为类。一句话概括就是，只要这个代码涉及到了任何Unity游戏引擎里面的东西，就要继承MonoBehaviour类才能开展相关操作。一般需要在游戏场景中实例化，进行各种活动的物体，就需要挂载这类脚本。比如你让游戏内物体移动，受一个力等。Unity引擎环境和微软C#语言的联系就在这么个MonoBehaviour上。<br>
+语法上，首先是引入命名空间UnityEngine以及继承MonoBehaviour类。在游戏引擎内创建脚本都会这么自动生成，如果要写定制类就手动删了吧。其次是还会自动生成两个函数start和update，简单来说行为类的初始化不写构造函数的，因为是挂载在游戏物体上的。可以在start当中进行初始化，这样每当挂载的物体在场景内出现，就会调用一次这个函数。update则是start接力版，每一帧调用一次，可以做周期性逻辑控制和并行处理的东西，比如控制当达成什么条件就实时。。。发个任务。。。之类的。其他用法见API，比如update还有一个稳定版本叫做fixedupdate。读者如果接触过多线程生命周期这种的，这很类似，相当于每个行为类在场景中有它的生命周期。</p>
+</li>
+<li>
+<h2 id="custom-class-定制类">Custom Class 定制类</h2>
+<p>可以理解为设计者自定义的类所以叫做定制类，其实就是C#普通的类而已，为了和行为类区别开，也可以说是非行为类。设计者可以不用继承MonoBehaviour类（因为没有那个必要），专注于处理和场景以外的模块比如数据库操作，各种后台逻辑之类的。语法和C#类与对象完全一致。</p>
+</li>
+</ul>
+<h2 id="表格对比如下">表格对比如下</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模块</th>
+<th style="text-align:left">MonoBehaviour Class 行为类</th>
+<th style="text-align:left">Custom Class 定制类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">基本区别</td>
+<td style="text-align:left">行为类就是继承于UnityEngine提供的MonoBehaviour类，可以调用MonoBehaviour的API，一般用于挂载到游戏内的GameObject上，表示游戏物体行为</td>
+<td style="text-align:left">定制类其实就是取了个高大上的叫法而已，就是指C#的常规类，不直接或者间接继承MonoBehaviour的类</td>
+</tr>
+<tr>
+<td style="text-align:left">初始化</td>
+<td style="text-align:left">不需要构造函数，自动生成start函数（和update函数），可以在其中进行初始化</td>
+<td style="text-align:left">C#构造函数语法 [public][类名] 后接(参数)和{代码段}，没有返回值</td>
+</tr>
+<tr>
+<td style="text-align:left">实例化</td>
+<td style="text-align:left">将代码文件挂载，也就是拖动到检视面板目标物体上</td>
+<td style="text-align:left">C#动态创建对象，语法为new 类名()；</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<h2 id="类成员可视化">类成员可视化</h2>
+[SerializeField]和[Syetem.Serializable]：属于一种C#特性，可使得变量或者类成员在检视面板可视化+直接手动赋值。前者针对行为继承类的变量，后者针对定制类。因为行为继承类默认可视化，但它的成员不是；public的变量都默认可视化。</li>
+<li>
+<h2 id="访问权限">访问权限</h2>
+一个基础概念补充，一般出于方便，权限用public或者private，但是还有一种是protected，这样那些相关继承类都可以访问得到，基本理解就是介于上述两者之间的一种部分权限开放。</li>
+<li>
+<h2 id="虚函数和重写">虚函数和重写</h2>
+虚函数virtual，意味着子类可以重写；重写override，意味着重写实现了基类的虚函数</li>
+<li>
+<h2 id="结构体">结构体</h2>
+关于结构体和数据类型，在C#当中和C++一样，结构体和类都是可以使用的（Java没有结构体），前者属于值类型存储在Stack栈上，注重存储性能；类的对象属于引用类型存储在Heap堆上，注重功能完善。值类型就是比较基础的，主要作为数据存在，比如所有基础数据类型和结构体。引用类型就是值类型和函数方法的组合型，作为类与对象的实践，它是指针思想的继承者，因为多数情况下比较大，所以通过引用来节约拷贝空间。结构体语法和类基本一致，关键字为struct。值类型和引用类型的语法区别则是，是否需要new来申请空间（值类型也可以动态new，但是不new也会开辟空间）。</li>
+<li>
+<h1 id="static-types-静态类型">Static Types 静态类型</h1>
+关于静态类型，教程本身没有很长的介绍，以下简述使用思路和语法技术要点<br>
+类似于C++，C#的静态类型就是存在于类当中的固件，只要整个程序在运行，它们都将存在，因为本质上静态类型的变量和方法是在堆上面申请的空间，因此将一直存在直到整个程序结束。所以它们具有着“独一份”的特质，因此不会也不能被实例化。类当中的静态成员将被每个对象共享，其实可以理解为静态成员在另一个次元，没有生老病死2333。<br>
+我们可以利用这一特性进行很多方便的设计。首先明确，类，变量，函数都可以是静态的。静态的类是那种工具类；静态变量可以用来记录那种全局数据，比如说成就之类的，其实很多常规数据用这个也更加清晰切容易访问；静态函数我将其称为“上帝操作”，典型的就是进行系统消息提示，可以将这个功能写成一个静态函数，参数是消息。这样在任何地方需要消息输出，直接用就可以了。<br>
+语法上就是在（返回）类型之前增加一个static修饰符。例如<code>public static int a;</code>。<br>
+静态变量的初始化，可以直接赋值，但是建议在对应的类当中实现静态构造函数，例如<code>static A{}</code>;其实呢就是说把构造函数的public换成了static。然后在这个翻版的构造函数当中处理所有静态东西。<br>
+注意：静态类当中不能有非静态成员，因为它不会被实例化；静态函数当中也不能访问调用任何非静态成员；静态变量需要被初始化好。</li>
+<li>
+<h1 id="properties-属性">Properties 属性</h1>
+简单来说，属性是变量的一种扩展形式，关注到了“访问权限”。<br>
+在C++和C#当中，都有public或者private这种来进行权限管理，这是一个办法，但这是很简单的控制可不可以访问。而我们经常遇到一些特殊访问控制，比如增加HP但不可以超过上限，超过就溢出的处理。这时候就是属性工作的时候了。<br>
+以前做数据结构ADT题的时候，C++建议把成员变量声明为private，然后通过函数才可以访问。C#的属性其实就是组合了一下这些，成为了一个语法糖。示例如下：</li>
+</ul>
+<pre><code class="language-csharp">public class Elf{ // 精灵类
+    private int hp; //真正的HP变量，private存数据
+    public int HP{ // 属性，变量的外壳，控制访问
+        get{ //读
+            return hp; 
+        }
+        set{ //写，hp上限设定为30，下限设定为0
+            if(hp + value &gt; 30) hp = 30;
+            else if(hp + value &lt; 0) hp = 0;
+            else hp += value;
+        }
+    }
+}
+</code></pre>
+<ul>
+<li>
+<h1 id="namespaces-命名空间">Namespaces 命名空间</h1>
+<p>在C++当中也存在了，Java当中则是那些库或者package包，在C#当中基本完全充当了头文件的作用，封装了预设的代码，同时为了避免重名相当于加了看不见的前缀名。<br>
+关键字：创建<code>namespace [空间名] {代码}</code>；使用<code>using namespace [空间名]</code>;<br>
+在开发的时候可以用来开发工具类代码，增强多人协作的操作性和软件复用度。往往研发岗实现功能后可以将研发的代码写在一个命名空间内，然后交付开发人员使用它来开发。<br>
+C#自带的命名空间有像最基础自动生成的两个System.Collections和Genetics，基本覆盖基础语法功能和一些高级设计技巧组件比如泛型和集合框架，一些基础数据结构和算法等。<br>
+Unity自带的命名空间有像最基础默认的UnityEngine用来支持引擎提供的MonoBehaviour,即代码文件开头自动生成<code>using namespace UnityEngine;</code>，再多举个常用例子比如UnityEngine.UI是支持引擎内UI的。</p>
+</li>
+<li>
+<h1 id="lists-线性表">Lists 线性表</h1>
+</li>
+<li>
+<h1 id="enums-枚举">Enums 枚举</h1>
+<p>C家族语言枚举就是限定了范围的一种特殊变量，比如说性别只能是男或者女或者未知三种。本质是一个小的常量集合。使用的时候，可以通过每个常量的名字访问。<br>
+要获取它们的整型数值，需要强制类型转换成int。</p>
+</li>
+<li>
+<h1 id="dictionary-映射集合字典">Dictionary 映射集合（字典）</h1>
+</li>
+<li>
+<h1 id="abstract-classes-抽象类">Abstract Classes 抽象类</h1>
+</li>
+<li>
+<h1 id="delegates-and-events-委托和事件">Delegates and Events 委托和事件</h1>
+</li>
+<li>
+<h1 id="linq-linq模块数据库">Linq LINQ模块（数据库）</h1>
+<p>Linq是微软在C#当中提供的一种数据库便利操作，就是避免去写SQL而是通过函数设置参数来查找。Java当中也是有如此设定的，例如安卓移动开发和JPA中都有。<br>
+使用之前需要引入命名空间System.Linq<br>
+预设现在有了一个集合类型<code>var test;</code>，这里的var是动态类型，实际使用时不确定的话可以是var，也可以是数组，列表等集合类型。Linq相关函数的调用方法并不是直接写名字，而是写集合名字.函数名，返回的就是操作结果。比如说any函数，那就是通过test.any的方式调用，返回的就是对应结果。<br>
+Any：参数为Lambda表达式指定条件，返回bool类型，表示是否有任何一个满足条件的了结果。<br>
+Contains：参数为string字符串，返回bool类型，表示集合是否包含参数。<br>
+Distinct：没有参数，返回还是一个集合类型，将原来集合当中重复元素去除后得到的集合，即“去重”。SQL语言当中查询结果也有distinct关键字，道理差不多。<br>
+Where：参数为Lambda表达式指定条件，返回还是一个集合类型，也就是对应SQL的where条件查询语句，将所有符合条件的元素查找出来。<br>
+OrderBy：按升序对序列的元素进行排序。<br>
+OrderByDescending：按降序对序列的元素排序。<br>
+ThenBy：按升序对序列中的元素执行后续排序。<br>
+ThenByDescending：按降序对序列中的元素执行后续排序。<br>
+Reverse：反转序列中元素的顺序。<br>
+Average：求平均数。</p>
+<p>其他更多函数和教程可以通过IDE语法功能或者查API。</p>
+</li>
+<li>
+<h1 id="singletons">Singletons</h1>
+</li>
+<li>
+<h1 id="objectpools">ObjectPools</h1>
+</li>
+<li>
+<h1 id="command-pattern">Command Pattern</h1>
+</li>
+</ul>
 ]]></content>
     </entry>
     <entry>
