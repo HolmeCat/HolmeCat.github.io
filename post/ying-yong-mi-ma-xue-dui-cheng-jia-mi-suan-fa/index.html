@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>2020 | 福尔摩猫</title>
+<title>应用密码学 对称加密算法 | 福尔摩猫</title>
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="一个随便学习的卑微颓废">
-<link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1587370665222">
+<link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1587885835632">
 <link rel="stylesheet" href="https://holmecat.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -24,8 +24,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
-    <meta name="description" content="2020" />
-    <meta name="keywords" content="随笔" />
+    <meta name="description" content="应用密码学 对称加密算法" />
+    <meta name="keywords" content="应用密码学" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -192,7 +192,35 @@
             <div class="toc-box right-motion">
   <div class="toc-wrapper auto-number auto" id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#4-20">4-20</a></li>
+<li><a href="#%E5%BC%95%E8%A8%80%E5%92%8C%E5%88%86%E7%BB%84%E5%8A%A0%E5%AF%86%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F">引言和分组加密工作模式</a>
+<ul>
+<li><a href="#%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99">分组密码设计原则</a></li>
+<li><a href="#%E4%B8%A4%E7%A7%8D%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%E7%BB%93%E6%9E%84">两种经典算法结构</a></li>
+</ul>
+</li>
+<li><a href="#des">DES</a>
+<ul>
+<li><a href="#%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0%E7%BB%93%E5%90%88%E4%B8%8A%E5%9B%BE%E9%98%85%E8%AF%BB">算法描述，结合上图阅读</a>
+<ul>
+<li><a href="#%E5%88%9D%E5%A7%8B%E8%BE%93%E5%85%A5">初始输入：</a></li>
+<li><a href="#%E5%AD%90%E5%AF%86%E9%92%A5%E5%87%86%E5%A4%87">子密钥准备</a>
+<ul>
+<li><a href="#%E5%BC%80%E5%A7%8B16%E8%BD%AE%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E8%BF%AD%E4%BB%A3">开始16轮密钥生成迭代</a></li>
+</ul>
+</li>
+<li><a href="#%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95">核心算法</a>
+<ul>
+<li><a href="#%E5%BC%80%E5%A7%8B16%E8%BD%AE%E8%BF%AD%E4%BB%A3">开始16轮迭代</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%80%E7%BB%88%E8%BE%93%E5%87%BA">最终输出：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9A%84%E5%8C%BA%E5%88%AB">加解密的区别</a></li>
+<li><a href="#%E6%94%B9%E8%BF%9B%E6%96%B9%E6%A1%88%E4%B8%89%E9%87%8Ddes">改进方案：三重DES</a></li>
+</ul>
+</li>
+<li><a href="#aes">AES</a></li>
 </ul>
 
   </div>
@@ -443,22 +471,16 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://holmecat.github.io/post/yi-ru-ji-wang-wan-shi-sheng-yi">
-      2020
+    <a class="post-title-link" href="https://holmecat.github.io/post/ying-yong-mi-ma-xue-dui-cheng-jia-mi-suan-fa">
+      应用密码学 对称加密算法
     </a>
   </h1>
   <div class="post-meta">
     
-      <span class="meta-item">
-        <i class="fa fa-thumb-tack"></i>
-        <span>置顶</span>
-        <span class="post-meta-divider">|</span>
-      </span>
-    
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-03-28</span>
+      <span>2020-03-16</span>
     </span>
     
       <span class="meta-item">
@@ -467,8 +489,8 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://holmecat.github.io/tag/y1rvQJUvd">
-              <span>随笔</span>
+            <a href="https://holmecat.github.io/tag/xojsxweYA">
+              <span>应用密码学</span>
             </a>
           
         
@@ -477,26 +499,89 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
+      <span>4分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>382<span class="pc-show">字数</span></span>
+      <span>1001<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <p>如果有幸，感谢你能进到这里看看</p>
-<h1 id="4-20">4-20</h1>
-<p>我已经一个多月没有更新这个博客的任何东西了。<br>
-这段日子，每次打开Gridea，总是不知道写些什么；每次准备学习，也不知道该怎么做。只有到了外力推行的时候，才会勉勉强强地去完成些什么。玩游戏的时候，其实也就那几个。<br>
-身边的朋友，都在走着自己的路线，看着他们一个个各种找工作、复习什么的，感觉自己就是个废物。诚然，这几个月的效率真的很低，毕竟在家里整个人就是很颓废。<br>
-不过呢，也不是一事无成。高考过后，再没有和家里人一块呆过这么久。这中间我浮躁过，也不停地做着思考，看新闻，看悬疑片。看似风平浪静地宅家，其实跌跌撞撞地到了现在。<br>
-口号呢，我也喊了很多次了。我擅长喊口号，我一直认为万事俱备才可出发，可是我却长期生活在一种动态平衡中。。。也不太好意思说是平衡，其实是摸鱼。<br>
-脑子里面的声音绝对不可以停下，自己嘴上的话语理应少一些。没有过不去的坎，未来或许多难，只有一直相信好事情会降落到自己身上，两条腿才能走起来。<br>
-达到真正的动态平衡的时候，我再来。</p>
+                <p>信息安全专业应该是必修的选修，现代密码学<br>
+此系列博客是对这门课的要点补记，说穿了就是老师划下的重点<br>
+不是笔记因为没记。。。最多加上一些自己的思考。<br>
+第四章 对称加密算法 分组密码<br>
+前面第三章是实验所以跳过</p>
+<!-- more -->
+<h1 id="引言和分组加密工作模式">引言和分组加密工作模式</h1>
+<p>简单概念：分组密码就是将明文分成等长的每一组，然后分别处理加解密</p>
+<h2 id="分组密码设计原则">分组密码设计原则</h2>
+<ul>
+<li>针对安全性的一般设计原则：<br>
+明文分组长度和密钥长度望尽可能大<br>
+混乱原则：又称混淆原则，是指密钥和明文以及密文之间的依赖关系尽可能的复杂<br>
+扩散原则：密钥或明文的每一位影响密文的许多位以便隐蔽明文的统计特性</li>
+</ul>
+<h2 id="两种经典算法结构">两种经典算法结构</h2>
+<ul>
+<li>Feistel结构<br>
+Feistel结构是典型的迭代密码.Feistel结构的解密与加密是完全一样的，除了所使用的子密钥的顺序正好相反。<br>
+<img src="https://holmecat.github.io//post-images/1587883578008.png" alt="" loading="lazy"></li>
+<li>SPN结构<br>
+SPN结构也是一种特殊的迭代密码 。SPN结构和Feistel结构相比，可以得到更快速的扩散，但是SPN密码的加解密通常不相似。<br>
+<img src="https://holmecat.github.io//post-images/1587883590118.png" alt="" loading="lazy"></li>
+</ul>
+<h1 id="des">DES</h1>
+<p>SDES这里跳过，直接上完整基础的DES加解密算法，Github上有输入64位明文的算法实现<br>
+DES是一种明文分组为64比特，有效密钥56比特，输出密文64比特的，具有16轮迭代的分组对称密码算法，DES由初始置换，16轮迭代，初始逆置换组成。<br>
+以下描述DES算法具体内容<br>
+<img src="https://holmecat.github.io//post-images/1587883751377.png" alt="" loading="lazy"></p>
+<h2 id="算法描述结合上图阅读">算法描述，结合上图阅读</h2>
+<h3 id="初始输入">初始输入：</h3>
+<p>64位原文，64位密钥</p>
+<h3 id="子密钥准备">子密钥准备</h3>
+<p>核心算法的每一轮迭代，都需要一个子密钥Ki<br>
+生成方式：<br>
+将64位密钥进行EP1置换，缩短为56位结果</p>
+<h4 id="开始16轮密钥生成迭代">开始16轮密钥生成迭代</h4>
+<p>将56位结果，左28位作为高位，右28位作为低位<br>
+根据LOOP数组对应的值，高低位循环左移数位<br>
+然后将目前的56位结果进行EP2置换，生成为48位结果<br>
+这个结果就是子密钥Ki</p>
+<p>经过上述操作的16轮迭代后，得到16个子密钥</p>
+<h3 id="核心算法">核心算法</h3>
+<p>将64位原文作IP置换，得到64位结果</p>
+<h4 id="开始16轮迭代">开始16轮迭代</h4>
+<p>将64位结果，左32位作为Li组，右32位作为Ri组，i+1为实际迭代轮数，所以i为0-15代表1-16轮</p>
+<ul>
+<li>f函数 输入为Ri组<br>
+将R组进行IP置换，扩展为48位<br>
+将R组和子密钥Ki作异或XOR运算<br>
+将48位异或结果，进入8个S盒，处理为32位<br>
+将32位S盒结果作P置换，引起雪崩效应，起混淆作用<br>
+结果记为f(Ri,Ki)</li>
+<li>异或交换<br>
+Li+1 = Ri<br>
+Ri+1 = Li异或f(Ri,Ki)，实际实现中处理了L和R的覆盖问题<br>
+可见上述就是将没动的左半边和f函数结果进行了异或，然后左右交换</li>
+</ul>
+<p>经过上述操作的16轮迭代后，得到最后64位结果<br>
+将64位结果的左L16右R16再次交换，其实就是抵消掉最后一轮的左右交换，实际实现中第16轮不交换<br>
+将交换恢复结果作IP逆置换，得到64位结果</p>
+<h3 id="最终输出">最终输出：</h3>
+<p>64位结果</p>
+<h2 id="加解密的区别">加解密的区别</h2>
+<p>DES的加解密很有意思，密钥生成和处理算法上是相同的<br>
+不同点仅在于，16个子密钥的使用顺序是完全相反的，加密从密钥1-16使用，解密时从密钥16-1使用<br>
+即每一轮使用的密钥不一样</p>
+<h2 id="改进方案三重des">改进方案：三重DES</h2>
+<p>套娃技术，素质三连算法迭代<br>
+加密顺序：加密——解密——加密<br>
+解密顺序：解密——加密——解密</p>
+<h1 id="aes">AES</h1>
 
               </div>
               <div class="post-footer">
@@ -507,7 +592,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://holmecat.github.io/post/yi-ru-ji-wang-wan-shi-sheng-yi" title="2020">2020</a>
+      <a href="https://holmecat.github.io/post/ying-yong-mi-ma-xue-dui-cheng-jia-mi-suan-fa" title="应用密码学 对称加密算法">应用密码学 对称加密算法</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -516,7 +601,7 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
-      <a href="https://holmecat.github.io/tag/y1rvQJUvd"># 随笔</a>
+      <a href="https://holmecat.github.io/tag/xojsxweYA"># 应用密码学</a>
     
   </div>
   <div class="nav">
