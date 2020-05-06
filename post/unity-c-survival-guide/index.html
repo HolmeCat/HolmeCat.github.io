@@ -6,7 +6,7 @@
 <title>Unity C# Survival Guide | 福尔摩猫</title>
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="一个随便学习的卑微颓废">
-<link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1588735298258">
+<link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1588764359197">
 <link rel="stylesheet" href="https://holmecat.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -525,12 +525,12 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>15分钟</span>
+      <span>17分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>4036<span class="pc-show">字数</span></span>
+      <span>4489<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
@@ -586,7 +586,26 @@ C#当中还有一些动态类型<strong>object，dynamic，var</strong>之类的
 <p>循环，作用是依照循环控制条件多次执行语句。<br>
 关键字：<strong>while do-while for foreach</strong></p>
 <h2 id="arrays-数组">Arrays 数组</h2>
+<p>数组是变量的集合，同种类型的多个变量连续存储就成了数组<br>
+关键字：<strong>[]</strong><br>
+数组声明的时候，在类型后面加上[]就可以了，如同C/C++当中的*号，道理相同<br>
+一维数组访问的时候语法格式：<code>数组名[index]</code>，其中index是下标<br>
+任何类型的数组也算是个类型，也可以成为参数、返回值等等。<br>
+在Unity中，由于public类型的都是面板可视化的（后文会讲），所以public的数组没有必要指定长度和具体内容元素，可以在Unity引擎当中直接设置。<br>
+Array类：所有数组的基类，提供了一些很有用的数组属性和方法。使用方法通过数组名和符号.访问。比如Length可以直接获取数组的长度。Sort可以对一维数组进行排序等等。其他的可以查阅API或菜鸟教程。<br>
+可以通过for、foreach来遍历数组进行相关操作<br>
+其他扩展知识点：</p>
+<ul>
+<li>多维数组 二维及以上的数组，每一维度长度固定</li>
+<li>交错数组 更加灵活的多维数组，每一维的长度都可以指定</li>
+</ul>
 <h2 id="functions-and-methods-函数和方法">Functions and Methods 函数和方法</h2>
+<p>在程序语言中，本质上函数和方法是同一个东西，是具有一定功能并被组织起来的的代码段。<br>
+函数是方法的数学描述，方法是函数的现实意义。<br>
+由于是一个数学概念，所以有三大要素：参数，过程代码，返回值<br>
+依照以下格式编写。使用的时候直接函数名(参数)的方式调用并返回相应类型的返回值。<br>
+语法格式：<code>[权限] [返回值类型] [函数名](参数){代码段}</code><br>
+关键字：<strong>ref out return</strong></p>
 <h1 id="classes-类与对象c面向对象">Classes 类与对象（C#面向对象）</h1>
 <p>Guide的第9章，C#进阶语法，面向对象<br>
 C#采用的是OOP模式，也就是说它是一门面向对象的程序语言<br>
