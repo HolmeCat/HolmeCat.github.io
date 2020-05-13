@@ -6,7 +6,7 @@
 <title>Unity C# Survival Guide | 福尔摩猫</title>
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="一个随便学习的卑微颓废">
-<link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1589168288677">
+<link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1589367006237">
 <link rel="stylesheet" href="https://holmecat.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -151,7 +151,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">10</span>
+        <span class="site-item-stat-count">11</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -251,15 +251,28 @@
 <li><a href="#%E6%8E%A5%E5%8F%A3">接口</a></li>
 </ul>
 </li>
-<li><a href="#delegates-and-events-%E5%A7%94%E6%89%98%E5%92%8C%E4%BA%8B%E4%BB%B6">Delegates and Events 委托和事件</a></li>
+<li><a href="#delegates-and-events-%E5%A7%94%E6%89%98%E5%92%8C%E4%BA%8B%E4%BB%B6">Delegates and Events 委托和事件</a>
+<ul>
+<li><a href="#delegates-%E5%A7%94%E6%89%98">Delegates 委托</a></li>
+<li><a href="#events-%E4%BA%8B%E4%BB%B6">Events 事件</a></li>
+<li><a href="#actions">Actions</a></li>
+<li><a href="#lambda-expressions">Lambda Expressions</a></li>
+</ul>
+</li>
 <li><a href="#linq-linq%E6%A8%A1%E5%9D%97%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8E%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6">Linq LINQ模块（数据库与集合框架）</a></li>
 </ul>
 </li>
 <li><a href="#c%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">C#设计模式</a>
 <ul>
-<li><a href="#singletons">Singletons</a></li>
-<li><a href="#objectpools">ObjectPools</a></li>
-<li><a href="#command-pattern">Command Pattern</a></li>
+<li><a href="#singletons-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F">Singletons 单例模式</a>
+<ul>
+<li><a href="#%E9%9D%99%E6%80%81%E5%85%A8%E5%B1%80%E8%AE%BE%E8%AE%A1%E8%AF%B4%E6%98%8E">静态全局设计说明</a></li>
+<li><a href="#lazy-instantiation%E6%87%92%E5%8A%A0%E8%BD%BD">Lazy Instantiation懒加载</a></li>
+<li><a href="#monosingleton">MonoSingleton</a></li>
+</ul>
+</li>
+<li><a href="#objectpools-%E5%AF%B9%E8%B1%A1%E6%B1%A0">ObjectPools 对象池</a></li>
+<li><a href="#command-pattern-%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F">Command Pattern 命令模式</a></li>
 </ul>
 </li>
 </ul>
@@ -540,12 +553,12 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>24分钟</span>
+      <span>28分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>6386<span class="pc-show">字数</span></span>
+      <span>7730<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
@@ -807,6 +820,10 @@ public class Develop : Card
 接口需要直接定义权限，声明就是将类的关键字class用关键字interface代替。因此每个接口方法不必写权限以及abstract，但是继承它的类实现还是需要写override。<br>
 接口在编码上其实倒是没那么地便利，但它对设计和约束有很多好处。</p>
 <h2 id="delegates-and-events-委托和事件">Delegates and Events 委托和事件</h2>
+<h3 id="delegates-委托">Delegates 委托</h3>
+<h3 id="events-事件">Events 事件</h3>
+<h3 id="actions">Actions</h3>
+<h3 id="lambda-expressions">Lambda Expressions</h3>
 <h2 id="linq-linq模块数据库与集合框架">Linq LINQ模块（数据库与集合框架）</h2>
 <p>Linq是微软在C#当中提供的一种数据库与集合框架的便利操作，就是避免去写SQL而是通过函数设置参数来查找。Java当中也是有如此设定的，例如安卓移动开发和JPA中都有。<br>
 使用之前需要引入命名空间System.Linq<br>
@@ -825,9 +842,70 @@ Average：求平均数。<br>
 <h1 id="c设计模式">C#设计模式</h1>
 <p>Guide的第19-21章，入门教程尾声，设计模式简单介绍<br>
 这里我也是初识，了解一下编程的一些科学设计模式，涉及到软件工程</p>
-<h2 id="singletons">Singletons</h2>
-<h2 id="objectpools">ObjectPools</h2>
-<h2 id="command-pattern">Command Pattern</h2>
+<h2 id="singletons-单例模式">Singletons 单例模式</h2>
+<p>设计样例：</p>
+<pre><code class="language-c#">public class GameManager : MonoBehaviour{
+    private static GameManager _instance;
+    public static GameManager Instance{
+        get{
+            if(_instance == null)
+                Debug.LogError(&quot;The GameManager is NULL.&quot;);
+            return _instance;
+        }
+    }
+    private void Awake(){
+        _instance = this;
+        return;
+    }
+}
+</code></pre>
+<h3 id="静态全局设计说明">静态全局设计说明</h3>
+<p>单例模式（Singleton）是最简单的设计模式之一，样例如上，现做说明<br>
+比如说，在游戏中有很多的管理类，比如GameManager，UIManager之类的。那么它们其实作为全局类，只需要也只能存在一个实例对象，并且应当被很方便地访问调用相关的所谓“系统功能”。所以，建议具备这种单一，全局，关键特质的类应当被设计为单例类，用单例模式实现。<br>
+实现的主要方式，就是将在自身当中将自己设计为静态成员对象，这样其他类可以直接访问公共属性。<br>
+这其实也就是静态概念的良好实践，即对必要元素全局化的思想。</p>
+<h3 id="lazy-instantiation懒加载">Lazy Instantiation懒加载</h3>
+<p>懒加载是平均性能，提高效率的方式。<br>
+单例模式很容易实现这个，其实就是动态构造和分配资源对象<br>
+不过这里简述，因为在Unity中虽然会保持一定的懒加载设计，但是懒加载对于游戏程序似乎不是那么地有用，存在不小的缺陷，因此不被教程建议使用。</p>
+<h3 id="monosingleton">MonoSingleton</h3>
+<p>单例类泛型模板，通过继承它可以直接实现单例模式</p>
+<pre><code class="language-c#">public abstract class MonoSingleton&lt;T&gt; : Monobehaviour where T : MonoSingleton&lt;T&gt;{
+    private static T_instance;
+    public static T Instance{
+        get{
+            if(_instance == null)
+                Debug.Log(typeof(T).ToString() + “is NULL.”);
+            return _instance;
+        }
+    }
+    private void Awake(){
+        _instance = (T)this;
+        Init();
+    }
+    public virtual void Init(){
+        //optional to override
+    }
+}
+</code></pre>
+<h2 id="objectpools-对象池">ObjectPools 对象池</h2>
+<p>对象池是一种对于游戏程序提升性能很有效的设计。<br>
+通常来说，游戏场景内有很多元素。比如说在Unity引擎当中，检视面板下就罗列了场景当中的物体。那么在游戏进行的过程当中，难免会涉及到物体的动态创建、动态删除，这对于游戏的空间效用还是可以的。<br>
+但是游戏一般来说，时间性能更为重要一些。比如枪战游戏，不停地做子弹的创建和销毁，是非常消耗处理器资源，影响游戏性能的。尤其是当场景过大，物体很多，效果和动态物体需求量很大的时候，单纯动态地去做这些，游戏卡顿甚至卡死是基本跑不脱的。<br>
+对象池(ObjectPool)就是一种可以兼顾时间和空间的设计。它预先准备好一些物体，比如子弹，然后当玩家的枪需要装弹射击的时候，向对子弹对象池发出请求，对象池就会给他分配一个子弹的使用权。当子弹被打完之后，原来是销毁，现在将其重新恢复到未使用的状态，依旧留在对象池内。这样，之后它又可以作为其他的子弹，再次甚至是多次地出现在场上。<br>
+本质上，对象池思想就是设置一个容器类，然后在里面预设比较合理的量的一些对象。等到它们需要被使用的时候，它们就被分配给需要的地方，但对象池也还是保有每个对象的引用。等到它们回收的时候，对象池就把它们初始化重新设为没在用的状态，这样可以继续被使用。这是一种类似环保可回收的设计，避免了大量不必要的内存分配和释放。如果说需求量超过了对象池的容量，那么对象池应当扩容，增加新的对象。<br>
+因此可以知道，对象池基本保持了一个瞬时最大的对象数量，不停地循环使用。由此可见，实现它的机制可以是线性表或者是队列。</p>
+<h2 id="command-pattern-命令模式">Command Pattern 命令模式</h2>
+<p>语法样例：命令类接口</p>
+<pre><code class="language-c#">public interface ICommand{ //命令接口
+    void Execute(); //执行函数
+    void Undue(); //回滚函数
+}
+</code></pre>
+<p>命令模式有点类似于数据库的事务概念，是一种针对行为的设计模式<br>
+命令模式的软件设计当中，将每一种命令都设计成一个命令类，命令类继承命令接口，就像上面的这个语法样例一样。在游戏程序运行的过程中，当一个对象需要进行某种操作的时候，它就new一个命令接口的对象，然后执行接口对象的Execute()函数。当一个对象需要撤销某种操作的时候，就执行Undue()函数，这就像数据库的事务回滚一样。<br>
+个人认为，命令模式适用于那种步骤鲜明，命令很多、很相似，并且需要明确命令管理的游戏。比如说下棋，就涉及到执棋和悔棋两种命令。<br>
+命令模式的设计，将原来可能内嵌的步骤也加入OOP的管理，增强了面向对象设计和可维护性。同时结合前面，一般建议结合单例模式和对象池，设计一个命令管理类，负责全部或相关命令的管理和切面操作。</p>
 
               </div>
               <div class="post-footer">
