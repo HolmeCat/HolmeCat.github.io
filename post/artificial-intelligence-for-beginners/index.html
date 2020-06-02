@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>应用密码学 公钥密码 | 福尔摩猫</title>
+<title>Artificial Intelligence for Beginners | 福尔摩猫</title>
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="一个随便学习的卑微颓废">
 <link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1591116145670">
@@ -24,8 +24,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
-    <meta name="description" content="应用密码学 公钥密码" />
-    <meta name="keywords" content="应用密码学" />
+    <meta name="description" content="Artificial Intelligence for Beginners" />
+    <meta name="keywords" content="Unity" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -192,30 +192,29 @@
             <div class="toc-box right-motion">
   <div class="toc-wrapper auto-number auto" id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81">公钥密码</a>
+<li><a href="#the-mathematics-of-ai-%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80">The Mathematics of AI 数学基础</a>
 <ul>
-<li><a href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3">基本思想</a></li>
-<li><a href="#%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80">数学基础</a></li>
-<li><a href="#%E5%BA%94%E7%94%A8">应用</a></li>
+<li><a href="#cartesian-plane-%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%9B%B4%E8%A7%92%E5%9D%90%E6%A0%87%E7%B3%BB">Cartesian Plane 笛卡尔直角坐标系</a></li>
+<li><a href="#vector-%E5%90%91%E9%87%8F">Vector 向量</a></li>
+<li><a href="#dot-product-%E7%82%B9%E4%B9%98">Dot Product 点乘</a></li>
+<li><a href="#cross-product-%E5%8F%89%E4%B9%98">Cross Product 叉乘</a></li>
+<li><a href="#autopilot-%E8%87%AA%E5%8A%A8%E5%AF%BB%E8%B7%AF">AutoPilot 自动寻路</a></li>
 </ul>
 </li>
-<li><a href="#rsa-%E5%9F%BA%E4%BA%8E%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E9%97%AE%E9%A2%98%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86%E8%B4%B9%E9%A9%AC%E5%AE%9A%E7%90%86">RSA 基于整数分解问题（欧拉定理，费马定理）</a>
+<li><a href="#the-physics-of-ai-%E7%89%A9%E7%90%86%E5%9F%BA%E7%A1%80">The Physics of AI 物理基础</a>
 <ul>
-<li><a href="#%E7%94%9F%E6%88%90%E5%AF%86%E9%92%A5">生成密钥</a></li>
-<li><a href="#%E5%8A%A0%E5%AF%86">加密</a></li>
-<li><a href="#%E8%A7%A3%E5%AF%86">解密</a></li>
-<li><a href="#%E5%AE%89%E5%85%A8%E6%80%A7%E5%88%86%E6%9E%90">安全性分析</a></li>
+<li><a href="#time-%E6%97%B6%E9%97%B4">Time 时间</a></li>
+<li><a href="#velocity-%E9%80%9F%E5%BA%A6">Velocity 速度</a></li>
+<li><a href="#acceleration-%E5%8A%A0%E9%80%9F%E5%BA%A6">Acceleration 加速度</a></li>
+<li><a href="#calculating-trajectories-%E8%BD%A8%E8%BF%B9%E8%AE%A1%E7%AE%97">Calculating Trajectories 轨迹计算</a></li>
 </ul>
 </li>
-<li><a href="#elgamal-%E5%9F%BA%E4%BA%8E%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E9%97%AE%E9%A2%98">ElGamal 基于离散对数问题</a>
-<ul>
-<li><a href="#%E7%94%9F%E6%88%90%E5%AF%86%E9%92%A5-2">生成密钥</a></li>
-<li><a href="#%E5%8A%A0%E5%AF%86-2">加密</a></li>
-<li><a href="#%E8%A7%A3%E5%AF%86-2">解密</a></li>
-<li><a href="#%E7%AE%97%E6%B3%95%E7%89%B9%E7%82%B9">算法特点</a></li>
-</ul>
-</li>
-<li><a href="#ecc-%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF">ECC 椭圆曲线</a></li>
+<li><a href="#waypoints-graphs-%E8%88%AA%E7%82%B9-%E5%9B%BE">Waypoints &amp; Graphs 航点 &amp; 图</a></li>
+<li><a href="#navigation-meshes-%E5%AF%BC%E8%88%AA%E7%BD%91%E6%A0%BC">Navigation Meshes 导航网格</a></li>
+<li><a href="#finite-state-machines-%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA">Finite State Machines 有限状态机</a></li>
+<li><a href="#autonomously-moving-agents-%E8%87%AA%E4%B8%BB%E7%A7%BB%E5%8A%A8%E4%BB%A3%E7%90%86">Autonomously Moving Agents 自主移动代理</a></li>
+<li><a href="#crowd-simulation-%E4%BA%BA%E7%BE%A4%E4%BB%BF%E7%9C%9F">Crowd Simulation 人群仿真</a></li>
+<li><a href="#goal-driven-behaviour-%E7%9B%AE%E6%A0%87%E9%A9%B1%E5%8A%A8%E8%A1%8C%E4%B8%BA">Goal Driven Behaviour 目标驱动行为</a></li>
 </ul>
 
   </div>
@@ -466,8 +465,8 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://holmecat.github.io/post/ying-yong-mi-ma-xue-gong-yao-mi-ma/">
-      应用密码学 公钥密码
+    <a class="post-title-link" href="https://holmecat.github.io/post/artificial-intelligence-for-beginners/">
+      Artificial Intelligence for Beginners
     </a>
   </h1>
   <div class="post-meta">
@@ -475,7 +474,7 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-05-11</span>
+      <span>2020-05-16</span>
     </span>
     
       <span class="meta-item">
@@ -484,8 +483,8 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://holmecat.github.io/tag/xojsxweYA/">
-              <span>应用密码学</span>
+            <a href="https://holmecat.github.io/tag/tqOmDUZ5M/">
+              <span>Unity</span>
             </a>
           
         
@@ -494,99 +493,39 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
+      <span>1分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1209<span class="pc-show">字数</span></span>
+      <span>149<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <p>信息安全专业应该是必修的选修，现代密码学<br>
-此系列博客是对这门课的要点补记，说穿了就是老师划下的重点<br>
-不是笔记因为没记。。。最多加上一些自己的思考。<br>
-第六、八章 非对称加密算法 公钥密码<br>
-第五和七章是实验所以跳过</p>
+                <p>Unity官方人工智能入门教程相关笔记<br>
+只记录知识重点，不扯繁琐内容</p>
 <!-- more -->
-<h1 id="公钥密码">公钥密码</h1>
-<p>##为了 解决的问题<br>
-对称加密算法要求密钥均保密，这样每一个通信信道都需要保存一对密钥<br>
-一个用户和多个用户有通信信道，他就需要保存很多份密钥，这样既麻烦也不安全</p>
-<h2 id="基本思想">基本思想</h2>
-<p>公钥密码也称为非对称密码。<br>
-使用公钥密码的每一个用户都分别拥有两个密钥：加密密钥与解密密钥，它们两者并不相同，并且由加密密钥得到解密密钥在计算上是不可行的。每一个用户的加密密钥都是公开的。<br>
-仅根据密码算法和加密密钥来确定解密密钥在计算上是不可行的。<br>
-两个密钥中的任何一个都可用来加密，另一个用来解密。</p>
-<h2 id="数学基础">数学基础</h2>
-<p>公钥密码的数学基础，基于抽象代数。此处介绍一个概念。<br>
-<strong>单向陷门函数</strong>可以被定义为如下函数f：<br>
-（1）给出f的定义域中的任意元素x,  f(x)的计算是容易的；<br>
-（2）给出y=f (x)中的y要计算x时，若知道设计函数f时结合进去的某种信息（该信息称为陷门），则容易计算；若不知道该信息，则难以计算。	<br>
-设计公钥密码体制可以转换为寻找单向陷门函数。</p>
-<h2 id="应用">应用</h2>
-<ul>
-<li>机密性的实现<br>
-发送方用接收方的公钥加密消息，接收方用自己的私钥来解密。</li>
-<li>数字签名<br>
-发送方用自己的私钥来签名消息，接收方通过发送方对应的公钥来鉴别消息，并且发送方不能对自己的签名进行否认。</li>
-<li>密钥分发和协商<br>
-发送方和接收方基于公钥密码系统容易实现在公开信道上的大规模的密钥分发和协商。</li>
-</ul>
-<h1 id="rsa-基于整数分解问题欧拉定理费马定理">RSA 基于整数分解问题（欧拉定理，费马定理）</h1>
-<p>RSA公钥算法是由 MIT (麻省理工学院, Massachusetts Institute of Technology) 的Rivest, Shamir和Adleman在1978年提出来的。RSA方案是被最广泛接受并实现的通用公开密钥密码算法，目前已成为公钥密码的国际标准。该算法的数学基础是初等数论中的欧拉定理，其安全性建立在大整数因子分解的困难性之上。</p>
-<h2 id="生成密钥">生成密钥</h2>
-<ul>
-<li>选择两个不同的大素数p和q，需要保密</li>
-<li>计算n = p × q，欧拉函数φ(n) = (p-1)×(q-1)</li>
-<li>选择大于1整数e使得e和φ(n)互素，即gcd = 1，e还要比φ(n)小</li>
-<li>计算d，d是e模φ(n)的逆元</li>
-<li>得到公钥{e，n}，私钥{d，n}</li>
-</ul>
-<h2 id="加密">加密</h2>
-<p>C = M^e mod n ,明文M &lt; n</p>
-<h2 id="解密">解密</h2>
-<p>M = C^d mod n</p>
-<h2 id="安全性分析">安全性分析</h2>
-<p>首先，破解RSA不会比分解大整数更加困难<br>
-所以，建议如下加强数学安全性质：</p>
-<ul>
-<li>p和q大小应该差不多</li>
-<li>p-1 和 q-1 应该包含大的素因子</li>
-<li>上面两者的公因数应该很小</li>
-<li>d &lt; n^(1/4)</li>
-</ul>
-<p>同时还要注意以下三点：</p>
-<ul>
-<li>用户之间不共享模数n</li>
-<li>不同用户选取素数不能相同</li>
-<li>一般不直接用RSA加解密</li>
-</ul>
-<h1 id="elgamal-基于离散对数问题">ElGamal 基于离散对数问题</h1>
-<p>ElGamal密码体制是T.ElGamal于1985年提出，是最有名的公钥密码体制之一，它的安全性是基于离散对数问题.</p>
-<h2 id="生成密钥-2">生成密钥</h2>
-<ul>
-<li>选取大素数p和g，g是属于整数集合Zp*且是一个本原元（生成元），p和g作为系统参数共享</li>
-<li>每个用户U随机选一个x，2 ≤ x ≤ p-2，并计算y = g^x mod p</li>
-<li>y就是用户公钥，x就是用户私钥</li>
-</ul>
-<h2 id="加密-2">加密</h2>
-<ul>
-<li>明文M设定在0和p-1之间</li>
-<li>用户挑选一个秘密随机数r，同样2 ≤ r ≤ p-2，并计算c1 = g^r mod p</li>
-<li>用户再计算c2 = m × y^r mod p，y是目标用户的公钥</li>
-<li>加密完成，密文是二元组（c1，c2）</li>
-</ul>
-<h2 id="解密-2">解密</h2>
-<p>解密计算仅一步：明文M = c2 × (c1<sup>x)</sup>-1 mod p，也就是要算c1^x模p的逆元</p>
-<h2 id="算法特点">算法特点</h2>
-<ul>
-<li>有随机性，每次选随机数r，所以同一明文加密结果也不同</li>
-<li>密文空间比明文空间要大，这说明有扩散特质，密文加密之后可以不是任何可能的明文</li>
-</ul>
-<h1 id="ecc-椭圆曲线">ECC 椭圆曲线</h1>
+<h1 id="the-mathematics-of-ai-数学基础">The Mathematics of AI 数学基础</h1>
+<p>简单基本的数学基础</p>
+<h2 id="cartesian-plane-笛卡尔直角坐标系">Cartesian Plane 笛卡尔直角坐标系</h2>
+<h2 id="vector-向量">Vector 向量</h2>
+<h2 id="dot-product-点乘">Dot Product 点乘</h2>
+<h2 id="cross-product-叉乘">Cross Product 叉乘</h2>
+<h2 id="autopilot-自动寻路">AutoPilot 自动寻路</h2>
+<h1 id="the-physics-of-ai-物理基础">The Physics of AI 物理基础</h1>
+<p>简单基本的物理基础</p>
+<h2 id="time-时间">Time 时间</h2>
+<h2 id="velocity-速度">Velocity 速度</h2>
+<h2 id="acceleration-加速度">Acceleration 加速度</h2>
+<h2 id="calculating-trajectories-轨迹计算">Calculating Trajectories 轨迹计算</h2>
+<h1 id="waypoints-graphs-航点-图">Waypoints &amp; Graphs 航点 &amp; 图</h1>
+<h1 id="navigation-meshes-导航网格">Navigation Meshes 导航网格</h1>
+<h1 id="finite-state-machines-有限状态机">Finite State Machines 有限状态机</h1>
+<h1 id="autonomously-moving-agents-自主移动代理">Autonomously Moving Agents 自主移动代理</h1>
+<h1 id="crowd-simulation-人群仿真">Crowd Simulation 人群仿真</h1>
+<h1 id="goal-driven-behaviour-目标驱动行为">Goal Driven Behaviour 目标驱动行为</h1>
 
               </div>
               <div class="post-footer">
@@ -597,7 +536,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://holmecat.github.io/post/ying-yong-mi-ma-xue-gong-yao-mi-ma/" title="应用密码学 公钥密码">应用密码学 公钥密码</a>
+      <a href="https://holmecat.github.io/post/artificial-intelligence-for-beginners/" title="Artificial Intelligence for Beginners">Artificial Intelligence for Beginners</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -606,21 +545,21 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
-      <a href="https://holmecat.github.io/tag/xojsxweYA/"># 应用密码学</a>
+      <a href="https://holmecat.github.io/tag/tqOmDUZ5M/"># Unity</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="应用密码学 散列函数和消息鉴别" href="https://holmecat.github.io/post/ying-yong-mi-ma-xue-san-lie-han-shu-he-xiao-xi-jian-bie/">应用密码学 散列函数和消息鉴别</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="应用密码学 散列函数和消息鉴别" href="https://holmecat.github.io/post/ying-yong-mi-ma-xue-san-lie-han-shu-he-xiao-xi-jian-bie/">上一篇</a>
+        <a class="nav-pc-next" title="计算机组成原理 系统概论" href="https://holmecat.github.io/post/ji-suan-ji-zu-cheng-yuan-li-xi-tong-gai-lun/">计算机组成原理 系统概论</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="计算机组成原理 系统概论" href="https://holmecat.github.io/post/ji-suan-ji-zu-cheng-yuan-li-xi-tong-gai-lun/">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Unity C# Survival Guide" href="https://holmecat.github.io/post/unity-c-survival-guide/">Unity C# Survival Guide</a>
-        <a class="nav-mobile-next" title="Unity C# Survival Guide" href="https://holmecat.github.io/post/unity-c-survival-guide/">下一篇</a>
+        <a class="nav-pc-next" title="应用密码学 散列函数和消息鉴别" href="https://holmecat.github.io/post/ying-yong-mi-ma-xue-san-lie-han-shu-he-xiao-xi-jian-bie/">应用密码学 散列函数和消息鉴别</a>
+        <a class="nav-mobile-next" title="应用密码学 散列函数和消息鉴别" href="https://holmecat.github.io/post/ying-yong-mi-ma-xue-san-lie-han-shu-he-xiao-xi-jian-bie/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
