@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://holmecat.github.io/</id>
     <title>福尔摩猫</title>
-    <updated>2020-06-02T16:43:20.348Z</updated>
+    <updated>2020-06-29T03:59:11.759Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://holmecat.github.io/"/>
     <link rel="self" href="https://holmecat.github.io/atom.xml"/>
@@ -601,10 +601,61 @@ public class Develop : Card
 接口需要直接定义权限，声明就是将类的关键字class用关键字interface代替。因此每个接口方法不必写权限以及abstract，但是继承它的类实现还是需要写override。<br>
 接口在编码上其实倒是没那么地便利，但它对设计和约束有很多好处。</p>
 <h2 id="delegates-and-events-委托和事件">Delegates and Events 委托和事件</h2>
+<p>语法样例：</p>
+<pre><code class="language-c#">//声明
+public delegate void OnDamageReceived(int currentHealth); //委托
+public static delegate OnDamageReceived onDamage; //事件
+//使用
+void Start() //主要演示函数
+{
+    onDamage = test; //第一个需要这样给，或者通过new
+    onDamage += test; //多播委托都是这样加上的
+    onDamage -= test; //多播委托都是这样去掉的
+    onDamage(10) //调用就像正常函数一样
+}
+void test(int Health){ //测试用的函数
+    Health++;
+}
+</code></pre>
+<p>关键字：<strong>delegate,event,action,func,lambda</strong><br>
+上面这个样例把外壳的类给省掉了，这些都是类里面能有的东西</p>
 <h3 id="delegates-委托">Delegates 委托</h3>
+<p>委托是这一模块的基础和核心。本质上委托就是“函数引用”或者类似C++的“函数指针”。简单理解就是给已有的函数方法取别名。通过委托，我们可以用同样的方式来访问函数，以及可以将函数作为一个变量或者对象来处理，比如传递函数当参数等等。因此，函数也变得对象化，可以动态调整。<br>
+想想看，中文翻译“委托”。如果说函数是一个行为，那么我们就是把这个行为委托给了另一个行为去做。<br>
+委托如样例，两行固定格式第一行声明委托的函数类型，第二行用声明的委托创建一个变量出来。有点像C语言的typedef。最后通过new或者=给它第一个包含的函数。如果没有的话，它就是null。</p>
+<h4 id="多播委托">多播委托</h4>
+<p>委托有一个很强的功能就是它同时能够客串函数数组的功能，但它不是真的数组。所谓多播委托就是将多个函数打包到同一个委托当中，前提是这些函数参数类型、数量，返回值类型等等语法要求都一致。这样当所谓调用委托执行的时候，所有这个委托当中加上的函数全部都可以一次性调用实现。<br>
+可见，通过+=和-=我们就可以将函数打包给委托了。拥有多个函数的委托自然就成了多播委托。</p>
 <h3 id="events-事件">Events 事件</h3>
-<h3 id="actions">Actions</h3>
-<h3 id="lambda-expressions">Lambda Expressions</h3>
+<p>接上文，事件是一种特殊的委托。在样例第二行当中，创建委托变量的时候的delegate关键字可以改为event关键字。那么这时候的这个委托就称为了事件。<br>
+这么做效果上也是没啥变化的，那么事件存在的意义是什么？实际上，event可以说是一种经过安全优化的委托，因为它在访问上做了些安全限制，具体这个可以查阅文档。简单来说，用它比较安全，不会出现一些访问上的异常情况。通常来说建议直接用event。</p>
+<h4 id="发布-订阅模型">发布-订阅模型</h4>
+<p>此外，我们将多播委托的概念模型化，也就是所谓的“发布-订阅”模型。<br>
+这个模型的设计意义在于可以去除软件设计的耦合。你想想，如果你生成了一个游戏物体，需要登记每次全图发福利要记得它，那么它还得去找到游戏管理类，搞一堆操作。现在不必了，只需要将它的发福利机制函数加入到游戏管理器的发福利事件当中，那么等到发福利的时候，自然就会执行了。在这个过程中，它相当于去订阅了发福利的服务，游戏管理器帮给发布这个福利，同时它不需要获取游戏管理器其他要素，游戏管理器也不必关心有多少个要发福利的以及每个人不同的福利是怎么发的。因此这两个类是不互相依赖的。</p>
+<h3 id="actions-动作化委托">Actions 动作化委托</h3>
+<p>语法样例：</p>
+<pre><code class="language-c#">public static Action&lt;int&gt; onDamage; //参数为int的动作化委托
+</code></pre>
+<p>Action是C#当中提供的一种简便的委托使用方法，注意是一种没有返回值的委托。如果委托的方法都是void就可以用这个，只需要一行，比上面的两行定义简洁。用法和委托一毛一样。<br>
+泛型参数就是变量的类型。样例当中就一个int那么就代表参数为一个int类型的委托。现在呢void类型的委托一般建议用这个，也是类型安全的还方便。<br>
+“动作化”这个名是我自己起的，其实简单理解，这种委托没有返回值，所以一般都是注重方法过程本身，重心放在执行“动作”上而不是“结果”上。</p>
+<h3 id="func-函数化委托">Func 函数化委托</h3>
+<p>语法样例：</p>
+<pre><code class="language-c#">public static Func&lt;string，int&gt; strlen; //参数为string，返回值为int的函数化委托
+</code></pre>
+<p>Func是C#当中提供的又一种简便的委托使用方法，注意是一种有返回值的委托，就是除去Action的其他委托。如果委托的方法是某种类型而不是void就可以用这个，只需要一行，也是简洁，用法还是一毛一样。<br>
+泛型参数有点不一样，其中最后一个参数是返回值，前面的还是参数类型。样例当中最后一个参数类型是int说明委托返回值是int，那么还剩一个string说明委托的函数参数是1个string。<br>
+同理“函数化”也是我自己起的名，和动作化互补相反，这种委托有返回值，因此就回归函数的样子。<br>
+Action和Func可以替代原始的委托使用方法，前面算作原理了，实际使用的时候这俩很好用！</p>
+<h3 id="lambda-expressions匿名方法">Lambda Expressions（匿名方法）</h3>
+<pre><code class="language-c#">strlen = (name) =&gt; name.Length; //匿名方法用lambda表达式表示
+</code></pre>
+<p>首先说一下，匿名方法此处不列，其实就是委托的变种，用delegate关键字可以直接弄一个没名字的函数出来用。我们这里直接介绍Lambda表达式，这是匿名方法的再简化，非常好用但要搞懂哈。<br>
+<strong>Lambda表达式</strong>是一种函数的简化表达，形式简单，没有名字因此属于匿名方法。<br>
+基本格式就是 一对括号传参数，一个等于号和大于号组成的箭头，函数内容；<br>
+这一对括号对应正常函数的参数表，箭头后面的内容对应函数代码体。<br>
+样例当中，参数是一个string字符串name，返回的是字符串的长度name.Length。这里结合前面的Func，因为这个lambda表达式所代表的函数类型就是和前面的Func委托一致的。<br>
+其他Lambda更加灵活的用法可以查阅文档。这里只给出了最简单的。</p>
 <h2 id="linq-linq模块数据库与集合框架">Linq LINQ模块（数据库与集合框架）</h2>
 <p>Linq是微软在C#当中提供的一种数据库与集合框架的便利操作，就是避免去写SQL而是通过函数设置参数来查找。Java当中也是有如此设定的，例如安卓移动开发和JPA中都有。<br>
 使用之前需要引入命名空间System.Linq<br>
