@@ -6,7 +6,7 @@
 <title>C++算法题常用基础小知识 | 福尔摩猫</title>
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="一个随便学习的卑微颓废">
-<link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1597494497355">
+<link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1598112813822">
 <link rel="stylesheet" href="https://holmecat.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -194,11 +194,23 @@
     <ul class="markdownIt-TOC">
 <li><a href="#%E8%AF%AD%E6%B3%95">语法</a>
 <ul>
-<li><a href="#%E6%8F%90%E9%AB%98%E6%89%A7%E8%A1%8C%E9%80%9F%E5%BA%A6%E7%9A%84%E6%89%8B%E6%AE%B5">提高执行速度的手段</a></li>
-<li><a href="#%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95">读入一行的方法</a></li>
+<li><a href="#%E6%8F%90%E9%AB%98%E6%89%A7%E8%A1%8C%E9%80%9F%E5%BA%A6%E7%9A%84%E5%B0%8F%E6%89%8B%E6%AE%B5%E8%A7%A3%E9%99%A4%E5%90%8C%E6%AD%A5">提高执行速度的小手段：解除同步</a></li>
+<li><a href="#%E8%AF%BB%E5%85%A5%E4%B8%80%E6%95%B4%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95">读入一整行的方法</a></li>
+<li><a href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E8%AE%BE%E5%AE%9A">输出格式设定</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%B0%E5%AD%A6">数学</a>
+<ul>
 <li><a href="#%E6%9C%80%E5%A4%A7%E5%85%AC%E5%9B%A0%E6%95%B0%E9%80%92%E5%BD%92%E6%A8%A1%E6%9D%BF">最大公因数递归模板</a></li>
-<li><a href="#algorithm">&lt;algorithm&gt;</a></li>
-<li><a href="#functional">&lt;functional&gt;</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AE%97%E6%B3%95">算法</a>
+<ul>
+<li><a href="#cmath%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE">&lt;cmath&gt;：二分查找</a></li>
+<li><a href="#memoryh%E5%BF%AB%E9%80%9F%E5%86%99%E5%86%85%E5%AD%98">&lt;memory.h&gt;：快速写内存</a></li>
+<li><a href="#algorithm%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F">&lt;algorithm&gt;：快速排序</a></li>
+<li><a href="#algorithm%E5%BF%AB%E9%80%9F%E5%A1%AB%E5%85%85">&lt;algorithm&gt;：快速填充</a></li>
+<li><a href="#functional%E5%8D%87%E9%99%8D%E5%BA%8F%E5%87%BD%E6%95%B0">&lt;functional&gt;：升降序函数</a></li>
 </ul>
 </li>
 <li><a href="#stl">STL</a></li>
@@ -480,12 +492,12 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
+      <span>5分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>488<span class="pc-show">字数</span></span>
+      <span>1057<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
@@ -496,46 +508,78 @@ window.addEventListener('load', function() {
 因为这些一直会忘又比较琐碎，所以统计在此</p>
 <!-- more -->
 <h1 id="语法">语法</h1>
-<h2 id="提高执行速度的手段">提高执行速度的手段</h2>
-<p>解除cin/cout同步，可较大加快cin/cout运行速度</p>
+<h2 id="提高执行速度的小手段解除同步">提高执行速度的小手段：解除同步</h2>
+<p>C++的标准输入输出流cin/cout和C语言原生的stdio.h/cstdio头文件相关输入输出有同步机制，这样会限制cin/cout的运行速度。解除cin/cout同步，可较大加快cin/cout运行速度，语句如下：</p>
 <pre><code class="language-c">ios::sync_with_stdio(false);
 </code></pre>
-<h2 id="读入一行的方法">读入一行的方法</h2>
+<h2 id="读入一整行的方法">读入一整行的方法</h2>
 <pre><code class="language-c">string s;
 getline(cin,s);
 </code></pre>
 <p>第一个参数cin是istream对象，代表标准输入<br>
 第二个参数s是string类型的字符串<br>
 <strong>注意，getline和cin在处理换行符上有些区别，所以要是混用注意利用getchar清空缓冲区</strong><br>
-其它C/C++获取输入的手段在此不列。</p>
+其它C/C++获取输入的手段在此不列，还有很多，包括控制台输入和文件输入等。</p>
+<h2 id="输出格式设定">输出格式设定</h2>
+<p>C语言的printf支持正则表达式匹配来设定，C++的cout则是通过函数来设定，比较繁琐。</p>
+<pre><code class="language-c">cout &lt;&lt; fixed &lt;&lt; setpricision(2);
+cout &lt;&lt; setw(2) &lt;&lt; setfill('0');
+</code></pre>
+<ul>
+<li>fixed代表固定小数点输出，setpricision代表输出有效数字位数。<br>
+以上两者结合可以固定小数点后有效输出位数。</li>
+<li>setw(2)代表输出宽度规定为2，setfill('0')代表用0填充不足区域。<br>
+两者结合可以设定当内容不足输出宽度时，用setfill的参数内容来填充不足区段。</li>
+</ul>
+<h1 id="数学">数学</h1>
 <h2 id="最大公因数递归模板">最大公因数递归模板</h2>
-<p>根据欧几里得辗转相除法得来<br>
+<p>求两个整数最大公因数的函数，根据欧几里得辗转相除法得来<br>
 学初等数论的时候已经写过非递归的版本，这个递归模板比较简洁</p>
 <pre><code class="language-c">long long gcd(long long  a,long long b){// 求最大公因数
     return b == 0 ? a : gcd(b, a % b);
 }
 </code></pre>
-<h2 id="algorithm">&lt;algorithm&gt;</h2>
-<p>算法库头文件，里面包含一些快捷算法</p>
-<ul>
-<li><strong>sort(begin, end, bool cmp)</strong><br>
-排序，无论是数组还是STL容器都可以，输入参数为起始地址，结束地址，比较函数cmp<br>
+<h1 id="算法">算法</h1>
+<p>以下以头文件+算法的格式给出相关调用和说明。</p>
+<h2 id="cmath二分查找">&lt;cmath&gt;：二分查找</h2>
+<p>C语言中的math.h头文件，C++中写作cmath来引入。</p>
+<pre><code class="language-c">int result;
+result = lower_bound(begin,end,num); //大于等于
+result = upper_bound(begin,end,num); //大于
+result = lower_bound(begin,end,num,greater&lt;type&gt;()); //小于等于
+result = upper_bound(begin,end,num,greater&lt;type&gt;()); //小于
+</code></pre>
+<p>bound函数说明：从数组的begin位置到end-1位置二分查找第一个大于（或等于）num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。<br>
+第四个参数是自定义查找条件函数。注意这是比较条件，因此和查找条件是反的，找到意味着“不必再比”。<br>
+在从大到小的排序数组中，通过第四个参数调用重载lower_bound()和upper_bound()，如代码后两行。</p>
+<h2 id="memoryh快速写内存">&lt;memory.h&gt;：快速写内存</h2>
+<pre><code class="language-c">memset(str,c,n);
+</code></pre>
+<p>复制字符 c（一个无符号字符）到参数 str 所指向的字符串的前 n 个字符。</p>
+<h2 id="algorithm快速排序">&lt;algorithm&gt;：快速排序</h2>
+<pre><code class="language-c">sort(begin, end, cmp);
+</code></pre>
+<p>排序，无论是数组还是STL容器都可以，输入参数为起始地址，结束地址，比较函数cmp<br>
 结束地址是结尾地址后的那个，比如0-n-1的数组结尾就是n<br>
-cmp默认是升序函数，也可以自定义函数然后作为参数写入，也可以利用下面头文件中的函数</li>
-<li>C 库函数<strong>memset(void *str, int c, size_t n)</strong><br>
-复制字符 c（一个无符号字符）到参数 str 所指向的字符串的前 n 个字符。</li>
-<li><strong>fill(G[0], G[0] + MAX_N * MAX_N, value)</strong><br>
+cmp默认是升序函数，也可以自定义函数然后作为参数写入，也可以利用下面头文件中的函数</p>
+<h2 id="algorithm快速填充">&lt;algorithm&gt;：快速填充</h2>
+<pre><code class="language-c">fill(G[0], G[0] + MAX_N * MAX_N, value)；
+</code></pre>
+<p>第一个参数是数字首地址，第二个参数是数组首地址+填充大小，第三个参数是填充内容<br>
 这是一个二维数组的例子，要注意。<br>
-更好的快速初始化方案，将value的内容填充到一段内存地址中。</li>
-</ul>
-<h2 id="functional">&lt;functional&gt;</h2>
-<p>内含一些预设函数比如</p>
+更好的快速初始化方案，将value的内容填充到一段内存地址中。</p>
+<h2 id="functional升降序函数">&lt;functional&gt;：升降序函数</h2>
+<p>这里提供了很多系统功能函数，最常用的两个是升序和降序函数，如下调用即可。</p>
 <ul>
-<li>greater&lt;int&gt;() 升序函数</li>
-<li>less&lt;int&gt;() 降序函数</li>
+<li>greater&lt;int&gt;(); 升序函数</li>
+<li>less&lt;int&gt;(); 降序函数</li>
 </ul>
 <h1 id="stl">STL</h1>
-<p>这块还没更新，鸽了</p>
+<p>顺序容器：vector，stack<br>
+队列容器：queue，deque，priorityqueue<br>
+集合映射：set，multiset，map，multimap<br>
+散列集合：hashmap，还没复习到，菜鸡<br>
+这块还没更新，鸽了</p>
 
               </div>
               <div class="post-footer">
