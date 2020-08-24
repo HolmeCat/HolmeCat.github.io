@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://holmecat.github.io/</id>
     <title>福尔摩猫</title>
-    <updated>2020-08-22T16:13:40.053Z</updated>
+    <updated>2020-08-24T02:49:41.467Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://holmecat.github.io/"/>
     <link rel="self" href="https://holmecat.github.io/atom.xml"/>
@@ -37,13 +37,13 @@ getline(cin,s);
 第二个参数s是string类型的字符串<br>
 <strong>注意，getline和cin在处理换行符上有些区别，所以要是混用注意利用getchar清空缓冲区</strong><br>
 其它C/C++获取输入的手段在此不列，还有很多，包括控制台输入和文件输入等。</p>
-<h2 id="输出格式设定">输出格式设定</h2>
+<h2 id="输出格式设定e">输出格式设定e</h2>
 <p>C语言的printf支持正则表达式匹配来设定，C++的cout则是通过函数来设定，比较繁琐。</p>
-<pre><code class="language-c">cout &lt;&lt; fixed &lt;&lt; setpricision(2);
+<pre><code class="language-c">cout &lt;&lt; fixed &lt;&lt; setprecision(2);
 cout &lt;&lt; setw(2) &lt;&lt; setfill('0');
 </code></pre>
 <ul>
-<li>fixed代表固定小数点输出，setpricision代表输出有效数字位数。<br>
+<li>fixed代表固定小数点输出，setprecision代表输出有效数字位数。<br>
 以上两者结合可以固定小数点后有效输出位数。</li>
 <li>setw(2)代表输出宽度规定为2，setfill('0')代表用0填充不足区域。<br>
 两者结合可以设定当内容不足输出宽度时，用setfill的参数内容来填充不足区段。</li>

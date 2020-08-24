@@ -6,7 +6,7 @@
 <title>C++算法题常用基础小知识 | 福尔摩猫</title>
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="一个随便学习的卑微颓废">
-<link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1598112813822">
+<link rel="shortcut icon" href="https://holmecat.github.io//favicon.ico?v=1598237375976">
 <link rel="stylesheet" href="https://holmecat.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -196,7 +196,7 @@
 <ul>
 <li><a href="#%E6%8F%90%E9%AB%98%E6%89%A7%E8%A1%8C%E9%80%9F%E5%BA%A6%E7%9A%84%E5%B0%8F%E6%89%8B%E6%AE%B5%E8%A7%A3%E9%99%A4%E5%90%8C%E6%AD%A5">提高执行速度的小手段：解除同步</a></li>
 <li><a href="#%E8%AF%BB%E5%85%A5%E4%B8%80%E6%95%B4%E8%A1%8C%E7%9A%84%E6%96%B9%E6%B3%95">读入一整行的方法</a></li>
-<li><a href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E8%AE%BE%E5%AE%9A">输出格式设定</a></li>
+<li><a href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E8%AE%BE%E5%AE%9Ae">输出格式设定e</a></li>
 </ul>
 </li>
 <li><a href="#%E6%95%B0%E5%AD%A6">数学</a>
@@ -497,7 +497,7 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1057<span class="pc-show">字数</span></span>
+      <span>1058<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
@@ -520,13 +520,13 @@ getline(cin,s);
 第二个参数s是string类型的字符串<br>
 <strong>注意，getline和cin在处理换行符上有些区别，所以要是混用注意利用getchar清空缓冲区</strong><br>
 其它C/C++获取输入的手段在此不列，还有很多，包括控制台输入和文件输入等。</p>
-<h2 id="输出格式设定">输出格式设定</h2>
+<h2 id="输出格式设定e">输出格式设定e</h2>
 <p>C语言的printf支持正则表达式匹配来设定，C++的cout则是通过函数来设定，比较繁琐。</p>
-<pre><code class="language-c">cout &lt;&lt; fixed &lt;&lt; setpricision(2);
+<pre><code class="language-c">cout &lt;&lt; fixed &lt;&lt; setprecision(2);
 cout &lt;&lt; setw(2) &lt;&lt; setfill('0');
 </code></pre>
 <ul>
-<li>fixed代表固定小数点输出，setpricision代表输出有效数字位数。<br>
+<li>fixed代表固定小数点输出，setprecision代表输出有效数字位数。<br>
 以上两者结合可以固定小数点后有效输出位数。</li>
 <li>setw(2)代表输出宽度规定为2，setfill('0')代表用0填充不足区域。<br>
 两者结合可以设定当内容不足输出宽度时，用setfill的参数内容来填充不足区段。</li>
