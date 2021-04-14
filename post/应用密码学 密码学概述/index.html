@@ -8,7 +8,7 @@
 <meta name="keywords" content="福尔摩猫">
 <meta name="description" content="一个随便学习的卑微颓废">
 <meta name="theme-color" content="#000">
-<title>福尔摩猫</title>
+<title>应用密码学 密码学概述 | 福尔摩猫</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1618394725221">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,6 +38,8 @@
 
 
 
+  <meta name="description" content="应用密码学 密码学概述" />
+  <meta name="keywords" content="应用密码学" />
 </head>
 
 <body>
@@ -152,10 +154,26 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  gemini">
+      class="section-layout gemini ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -206,86 +224,491 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0">第一章：密码学概述</a></li>
+<li><a href="#%E8%AF%BE%E5%90%8E%E4%BD%9C%E4%B8%9A">课后作业</a>
+<ul>
+<li><a href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%86%E7%A0%81%E5%AD%A6%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%86%E7%A0%81%E7%BC%96%E7%A0%81%E5%AD%A6%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%86%E7%A0%81%E5%88%86%E6%9E%90%E5%AD%A6">1、什么是密码学？什么是密码编码学？什么是密码分析学？</a></li>
+<li><a href="#2-%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E4%BA%94%E5%85%83%E7%BB%84%E6%98%AF%E4%BB%80%E4%B9%88%E4%BB%96%E4%BB%AC%E5%88%86%E5%88%AB%E6%9C%89%E4%BB%80%E4%B9%88%E5%90%AB%E4%B9%89">2、密码学的五元组是什么？他们分别有什么含义？</a></li>
+<li><a href="#3-%E5%AF%86%E7%A0%81%E5%88%86%E6%9E%90%E4%B8%BB%E8%A6%81%E6%9C%89%E5%93%AA%E4%BA%9B%E5%BD%A2%E5%BC%8F%E5%90%84%E6%9C%89%E4%BD%95%E7%89%B9%E7%82%B9">3、密码分析主要有哪些形式？各有何特点？</a></li>
+<li><a href="#4-kerchkoffs%E5%8E%9F%E5%88%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9%E6%98%AF%E4%BB%80%E4%B9%88">4、Kerchkoffs原则的基本内容是什么？</a></li>
+<li><a href="#5-%E4%B8%80%E4%B8%AA%E5%AF%86%E7%A0%81%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%99%85%E5%8F%AF%E7%94%A8%E7%9A%84%E6%9D%A1%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88">5、一个密码系统实际可用的条件是什么？</a></li>
+<li><a href="#6-%E5%AF%86%E7%A0%81%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E5%88%86%E7%B1%BB">6、密码系统如何分类？</a></li>
+<li><a href="#7-%E8%AF%95%E6%AF%94%E8%BE%83%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81%E4%BD%93%E5%88%B6%E5%92%8C%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81%E4%BD%93%E5%88%B6">7、试比较对称密码体制和非对称密码体制</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box tag-line box-shadow-wrapper">
-          <section class="section tags-section posts-expand bg-color">
-            <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          Unity
-          <small class="language" data-lan="tag">标签</small>
-        </h2>
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
+        
       </div>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://holmecat.github.io/post/应用密码学 密码学概述/">
+      应用密码学 密码学概述
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2020-02-25 15:55:19">2020-02-25</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      
-      <a href="https://holmecat.github.io/post/Unity CSharp Survival Guide/">
-        <div class="motion-warpper">
-          <div class="tag-post-node">
-            <h1>
-              04-10
-              <small>Unity C# Survival Guide</small>
-            </h1>
-          </div>
-        </div>
+      <a href="https://holmecat.github.io/tag/xojsxweYA/">
+        <span>应用密码学</span>
       </a>
       
       
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>7<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1802<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</section>
+            <div class="post-body next-md-body" id="post_body">
+              <p>信息安全专业应该是必修的选修，现代密码学<br>
+此系列博客是对这门课的要点补记，说穿了就是老师划下的重点<br>
+不是笔记因为没记。。。最多加上一些自己的思考。<br>
+第一章，一个绪论，增进常识。</p>
+<!-- more -->
+<h2 id="第一章密码学概述">第一章：密码学概述</h2>
+<ul>
+<li>密码学是信息安全基础，提供了3个安全服务：真实性（可鉴别性），机密性，完整性保护和信息抗抵赖性</li>
+<li>CIA：confidentiality，integrity，authentication，也就是上面的概念</li>
+<li>密码学保障不了可用性</li>
+<li>德国二战用的密码机：恩尼格玛密码机</li>
+<li>图灵破解了恩尼格玛密码机，也是人工智能之父</li>
+<li>中华人民共和国密码法，2020-1-1起实施</li>
+<li>1977第一个商用密码 DES</li>
+<li>香农：奠基性论文“保密系统的通信理论”（Communication Theory of Secrecy System）</li>
+<li>公开密码开创者：惠特菲尔德·迪菲（Whitfield Diffie）与马丁·赫尔曼（Martin Hellman）</li>
+<li>AES：Rijndael数据加密算法，是由Daemen和Rijmen</li>
+<li>中国的自主密码：SM；对应国际上密码：sm2，sm3，sm4</li>
+<li>密码学研究领域的两个分支：密码分析学和密码编码学</li>
+<li>明文，密码，加密算法，密钥英文代表符：M，C，E，K</li>
+<li>密码分析者破译胡或攻击密码的方法主要有穷举攻击法，统计分析法和数学分析攻击法</li>
+<li>衡量密码系统攻击的复杂性主要考虑三个方面的因素：数据复杂性，处理复杂性，存储需求</li>
+<li>柯克霍夫斯原则：密码系统中的算法即使为密码分析者所知，也无助于用来推导出铭文或密钥。也就是说，密码系统的安全性不应取决于不易被改变的事物（算法），而应只取决于可随时改变的密钥。</li>
+<li>对于商用密码系统而言，公开密码算法的优点包括：
+<ul>
+<li>有利于对密码算法的安全性进行公开测试评估；</li>
+<li>防止密码算法设计者在算法中隐藏后门</li>
+<li>易于实现密码算法的标准化</li>
+<li>有利于使用密码算法产品的规模化生产，实现低成本和高性能。</li>
+</ul>
+</li>
+</ul>
+<h2 id="课后作业">课后作业</h2>
+<h3 id="1-什么是密码学什么是密码编码学什么是密码分析学">1、什么是密码学？什么是密码编码学？什么是密码分析学？</h3>
+<p>密码学是信息安全学科建设和信息系统安全工程实践的基础理论之一。密码学贯穿于网络信息安全的整个过程，在解决信息的机密性保护、可鉴别性、完整性保护和信息抗抵赖性等方面发挥着极其重要的作用。</p>
+<p>密码编码学的主要任务是寻求有效密码算法和协议，以保证信息的机密性或认证性的方法。它主要研究密码算法的构造与设计，也就是密码体制的构造。它是密码理论的基础，也是保密系统设计的基础。</p>
+<p>密码分析学的主要任务是研究加密信息的破译或认证信息的伪造。它主要是对密码信息的解析方法进行研究。</p>
+<h3 id="2-密码学的五元组是什么他们分别有什么含义">2、密码学的五元组是什么？他们分别有什么含义？</h3>
+<p>五元组为{M,C,K,E,D}。</p>
+<p>消息空间M（又称明文空间）：所有可能明文m的集合；</p>
+<p>密文空间C：所有可能密文c的集合；</p>
+<p>密钥空间K：所有可能密钥k的集合，其中每一密钥k由加密密钥ke和解密<br>
+密钥kd组成，即k＝（ke，kd）；</p>
+<p>加密算法E：一簇由加密密钥控制的、从M到C的加密变换；</p>
+<p>解密算法D：一簇由解密密钥可能固执的、从C到M的解密变换。</p>
+<h3 id="3-密码分析主要有哪些形式各有何特点">3、密码分析主要有哪些形式？各有何特点？</h3>
+<p>穷举攻击法又称为强力或蛮力（Brute force）攻击。这种攻击方法是对截获到的密文尝试遍历所有可能的密钥，直到获得了一种从密文到明文的可理解的转换。</p>
+<p>统计分析攻击就是指密码分析者根据明文、密文和密钥的统计规律来破译密码的方法。</p>
+<p>数学分析攻击是指密码分析者针对加解密算法的数学基础和某些密码学特性，通过数学求解的方法来破译密码。数学分析攻击是对基于数学难题的各种密码算法的主要威胁。</p>
+<h3 id="4-kerchkoffs原则的基本内容是什么">4、Kerchkoffs原则的基本内容是什么？</h3>
+<p>即使密码系统中的算法为密码分析者所知，也难以从截获的密文推导出明文或密钥。</p>
+<p>也就是说，密码体制的安全性仅应依赖于对密钥的保密，而不应依赖于对算法的保密。</p>
+<h3 id="5-一个密码系统实际可用的条件是什么">5、一个密码系统实际可用的条件是什么？</h3>
+<p>系统的保密性不依赖于对加密体制或算法的保密，而仅依赖于密钥的安全性。</p>
+<p>“一切秘密寓于密钥之中”是密码系统设计的一个重要原则。</p>
+<p>满足实际安全性，使破译者取得密文后在有效时间和成本范围内，确定密钥或相应明文在计算上是不可行的。</p>
+<p>加密和解密算法应适用于明文空间、密钥空间中的所有元素。</p>
+<p>加密和解密算法能有效地计算，密码系统易于实现和使用。</p>
+<h3 id="6-密码系统如何分类">6、密码系统如何分类？</h3>
+<p>根据加密算法与解密算法所使用的密钥是否相同，可以将密码体制分为：</p>
+<ul>
+<li>对称密码体制（Symmetric cipher，也称为单钥密码体制、对称密钥密码体制或常规密码体制）</li>
+<li>非对称密码体制（Asymmetric cipher，也称为公开密钥密码体制、非对称密钥密码体制）</li>
+</ul>
+<p>根据对明文信息的处理方式的处理方式，可将对称密码体制分为：</p>
+<ul>
+<li>分组密码（Block cipher）</li>
+<li>序列密码（Stream cipher，也称为流密码）</li>
+</ul>
+<p>根据密码算法是否能进行可逆的加密变换，可以将密码体制分为：</p>
+<ul>
+<li>单向函数密码体制</li>
+<li>双向变换密码体制</li>
+</ul>
+<h3 id="7-试比较对称密码体制和非对称密码体制">7、试比较对称密码体制和非对称密码体制</h3>
+<p>对称密码体制的主要优势是：<br>
+加密、解密运算的处理速度快，效率高，算法安全性高。<br>
+对称密码体制存在的局限性或不足：</p>
+<ol>
+<li>对称密码算法的密钥分发过程复杂，所花代价高；</li>
+<li>密钥管理困难；</li>
+<li>保密通信系统的开放性差；</li>
+<li>存在数字签名的困难性。</li>
+</ol>
+<p>非对称密码体制的主要优势是：</p>
+<ol>
+<li>密钥分配简单。</li>
+<li>系统密钥量少，便于管理。</li>
+<li>系统开放性好。</li>
+<li>可以实现数字签名。</li>
+</ol>
+<p>非对称密码体制存在的局限性是加密、解密运算效率较低，处理速度较慢，同等安全强度下，非对称密码体制的密钥位数较多。</p>
+
+            </div>
+            
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      福尔摩猫
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://holmecat.github.io/post/应用密码学 密码学概述/" title="应用密码学 密码学概述">https://holmecat.github.io/post/应用密码学 密码学概述/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://holmecat.github.io/tag/xojsxweYA/"># 应用密码学</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
       
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="应用密码学 传统密码技术" href="https://holmecat.github.io/post/应用密码学 传统密码技术/">应用密码学 传统密码技术</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="应用密码学 传统密码技术" href="https://holmecat.github.io/post/应用密码学 传统密码技术/">上一篇</a>
       
+    </div>
+    <div class="nav-next">
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+        <a class="nav-pc-next" title="C++北大MOOC综合大作业" href="https://holmecat.github.io/post/C++北大MOOC综合大作业/">C++北大MOOC综合大作业</a>
+        <a class="nav-mobile-next" title="C++北大MOOC综合大作业" href="https://holmecat.github.io/post/C++北大MOOC综合大作业/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-          </section>
+            
+            
+  
+    
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'b4f2fd809b2d80b670c0',
+    clientSecret: '6ae6ae4ac76869451a9a862c56790cd1cdebb843',
+    repo: 'HolmeCat.github.io',
+    owner: 'HolmeCat',
+    admin: ['HolmeCat'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
+</script>
+    
+    
+  
+
+          </div>
         </div>
       </div>
     </div>
@@ -541,6 +964,223 @@
     parent.insertBefore(aelem, next);
   })
 </script>
+    <div class="reward-mask" style="display: none;">
+  <div class="reward-relative">
+    <span class="close" aria-hidden="true">x</span>
+    <div class="reward-body">
+      <h2>感谢您的支持，我会继续努力的!</h2>
+      <div class="reward-img-box">
+        <div style="position: relative; width: 140px; height: 140px;">
+          
+          
+          
+        </div>
+      </div>
+      <p class="reward-word">扫码打赏，你说多少就多少</p>
+      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
+    </div>
+    <div class="bottom">
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+  .reward-mask {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000054;
+  }
+
+  .reward-relative {
+    position: relative;
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -205px;
+  }
+
+  .reward-relative .close {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+  }
+
+  .reward-body {
+    padding: 40px 20px 20px;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .reward-btn {
+    text-align: center;
+  }
+
+  .reward-btn-text {
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #ff9734;
+    color: #FFF;
+    margin-top: 20px;
+  }
+
+  .pay-text {
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1;
+    transition: all .2s linear;
+  }
+
+  .pay-text:hover {
+    background-color: #a5a5a536;
+  }
+
+  .reward-body h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  .reward-body h2:after,
+  .reward-body h2:before {
+    font-family: Arial, Helvetica, sans-serif;
+    background: 0 0;
+    width: 0;
+    height: 0;
+    font-style: normal;
+    color: #eee;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .reward-body h2:before {
+    content: '\201c';
+    left: 50px;
+  }
+
+  .reward-body h2:after {
+    content: '\201d';
+    right: 80px;
+  }
+
+  .reward-img-box {
+    display: inline-block;
+    padding: 10px;
+    border: 6px solid #ea5f00;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .reward-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .reward-relative {
+      height: 100%;
+      top: 0px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .reward-relative .bottom {
+      flex-direction: column;
+    }
+
+    .reward-relative .pay-text {
+      width: 80%;
+      margin: 5px auto;
+      border: 1px solid silver;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .reward-body h2:after {
+      right: 40px;
+    }
+
+    .reward-body h2:after,
+    .reward-body h2:before {
+      font-size: 60px;
+    }
+
+    .reward-body h2:before {
+      left: 20px;
+    }
+  }
+</style>
+<script>
+  !function () {
+    var mask = document.querySelector('.reward-mask');
+    let close = document.querySelector('.reward-relative .close');
+    let rewardBtn = document.querySelector('.reward-btn');
+
+    let zfb = document.querySelector('#zfb'),
+      wx = document.querySelector('#wx'),
+      zfbBtn = document.querySelector('#zfbBtn'),
+      wxBtn = document.querySelector('#wxBtn');
+
+    if (zfbBtn && wxBtn) {
+      zfbBtn.addEventListener('click', () => {
+        window.Velocity(zfb, 'transition.slideLeftIn', {
+          duration: 400
+        });
+        window.Velocity(wx, 'transition.slideRightOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+
+      wxBtn.addEventListener('click', () => {
+        window.Velocity(wx, 'transition.slideRightIn', {
+          duration: 400
+        });
+        window.Velocity(zfb, 'transition.slideLeftOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+    }
+
+    rewardBtn.addEventListener('click', (e) => {
+      window.Velocity(mask, 'transition.slideDownIn', {
+        duration: 400
+      })
+    });
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.Velocity(mask, 'transition.slideUpOut', {
+        duration: 400
+      })
+    })
+  }()
+</script>
+
   </div>
 </body>
 
@@ -2278,6 +2918,5 @@ Markdown 编写的文档后缀为 .md, .markdown。&lt;/p&gt;
 
   <div class="snow-container"></div>
   <script src="/media/js/bg/snow.js"></script>
-
 
 </html>

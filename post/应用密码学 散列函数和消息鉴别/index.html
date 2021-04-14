@@ -8,7 +8,7 @@
 <meta name="keywords" content="福尔摩猫">
 <meta name="description" content="一个随便学习的卑微颓废">
 <meta name="theme-color" content="#000">
-<title>福尔摩猫</title>
+<title>应用密码学 散列函数和消息鉴别 | 福尔摩猫</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1618394725221">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,6 +38,8 @@
 
 
 
+  <meta name="description" content="应用密码学 散列函数和消息鉴别" />
+  <meta name="keywords" content="应用密码学" />
 </head>
 
 <body>
@@ -152,10 +154,26 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  gemini">
+      class="section-layout gemini ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -206,86 +224,511 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B0">散列函数</a>
+<ul>
+<li><a href="#hash%E5%87%BD%E6%95%B0%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD%E5%92%8C%E7%94%A8%E9%80%94">Hash函数主要功能和用途</a></li>
+<li><a href="#%E6%A6%82%E5%BF%B5">概念</a></li>
+<li><a href="#%E5%AE%89%E5%85%A8%E6%80%A7">安全性</a></li>
+<li><a href="#%E5%88%86%E7%B1%BB">分类</a>
+<ul>
+<li><a href="#%E5%B8%A6%E5%AF%86%E9%92%A5%E7%9A%84hash%E5%87%BD%E6%95%B0">带密钥的Hash函数</a></li>
+</ul>
+</li>
+<li><a href="#%E7%94%9F%E6%97%A5%E6%94%BB%E5%87%BB">生日攻击</a></li>
+<li><a href="#%E8%BF%AD%E4%BB%A3%E7%9A%84hash%E5%87%BD%E6%95%B0">迭代的Hash函数</a></li>
+</ul>
+</li>
+<li><a href="#md5">MD5</a>
+<ul>
+<li><a href="#md5%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0">MD5算法描述</a></li>
+<li><a href="#%E6%80%A7%E8%B4%A8">性质</a></li>
+</ul>
+</li>
+<li><a href="#sha-1">SHA-1</a>
+<ul>
+<li><a href="#sha-1%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0">SHA-1算法描述</a></li>
+<li><a href="#%E4%B8%8Emd5%E7%9A%84%E6%AF%94%E8%BE%83">与MD5的比较</a></li>
+</ul>
+</li>
+<li><a href="#md5%E5%92%8Csha-1%E9%83%BD%E4%B8%8D%E6%98%AF%E5%AE%8C%E7%BE%8E%E7%9A%84">MD5和SHA-1都不是完美的</a></li>
+<li><a href="#mac-%E6%B6%88%E6%81%AF%E8%AE%A4%E8%AF%81%E7%A0%81">MAC 消息认证码</a>
+<ul>
+<li><a href="#%E5%9F%BA%E4%BA%8E%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E7%9A%84%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0">基于分组密码的算法描述</a></li>
+<li><a href="#%E5%9F%BA%E4%BA%8E%E5%BA%8F%E5%88%97%E5%AF%86%E7%A0%81%E7%9A%84%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0">基于序列密码的算法描述</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box tag-line box-shadow-wrapper">
-          <section class="section tags-section posts-expand bg-color">
-            <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          Unity
-          <small class="language" data-lan="tag">标签</small>
-        </h2>
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
+        
       </div>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://holmecat.github.io/post/应用密码学 散列函数和消息鉴别/">
+      应用密码学 散列函数和消息鉴别
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2020-05-11 15:37:47">2020-05-11</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      
-      <a href="https://holmecat.github.io/post/Unity CSharp Survival Guide/">
-        <div class="motion-warpper">
-          <div class="tag-post-node">
-            <h1>
-              04-10
-              <small>Unity C# Survival Guide</small>
-            </h1>
-          </div>
-        </div>
+      <a href="https://holmecat.github.io/tag/xojsxweYA/">
+        <span>应用密码学</span>
       </a>
       
       
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>5<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1416<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+  </div>
+</section>
+            <div class="post-body next-md-body" id="post_body">
+              <!-- more -->
+<p>信息安全专业应该是必修的选修，现代密码学<br>
+此系列博客是对这门课的要点补记，说穿了就是老师划下的重点<br>
+不是笔记因为没记。。。最多加上一些自己的思考。<br>
+第九章  散列函数和消息隐藏</p>
+<!-- more -->
+<h2 id="散列函数">散列函数</h2>
+<p>以下介绍散列函数的相关概念</p>
+<h3 id="hash函数主要功能和用途">Hash函数主要功能和用途</h3>
+<p>提供有效的数据完整性检验</p>
+<ul>
+<li>单向加密<br>
+通过加密结果不可逆向计算得到明文 ，用户的口令加密，隐私保护</li>
+<li>实现完整性验证<br>
+发票验证，下载数据验证，网站防篡改</li>
+<li>数据压缩</li>
+</ul>
+<p>无论源文件或者信息多大，哈希过以后的长度都是256比特。</p>
+<p>数据指纹，在数字签名中，消息的签名其实是对消息散列值的加密产生的，而不是消息本身。</p>
+<h3 id="概念">概念</h3>
+<p>Hash函数是一个将任意长度的消息序列映射为较短的、固定长度的一个值的函数。</p>
+<p>密码学上的Hash函数能够保障数据的完整性。</p>
+<p>通常被用来构造数据的“指纹”（即函数值），当被检验的数据发生改变的时候，对应的“指纹”信息也将发生变化。</p>
+<h3 id="安全性">安全性</h3>
+<p>对于一个散列函数，以下问题应当是难解的</p>
+<ul>
+<li>原像问题<br>
+即从函数返回值y去找到函数参数x<br>
+不能有效找到的话，即称为单向的或原像稳固的</li>
+<li>碰撞问题</li>
+</ul>
+<p>即找到两个函数参数x和x'，它们的函数值y相等<br>
+不能有效找到的话，即成为碰撞稳固的</p>
+<h3 id="分类">分类</h3>
+<ul>
+<li>简单的Hash函数</li>
+<li>密钥的Hash函数，通常作为消息认证码MAC</li>
+</ul>
+<h4 id="带密钥的hash函数">带密钥的Hash函数</h4>
+<p>X：消息集合，Y：消息摘要有限集合，K：密钥集合<br>
+对任意的k∈K，都存在一个Hash函数<br>
+存在Hk(x) = y的话，则(x,y)称为在密钥k下有效</p>
+<h3 id="生日攻击">生日攻击</h3>
+<p>Hash函数就是为了防止修改消息的攻击方式，而生日攻击就是一种典型</p>
+<p>基于概率论问题，“一个班级内至少要有多少人，两个人同一天生日概率大于1/2”</p>
+<p>答案是只要有23认人，此时X是学生，Y是日期，可见俩不同学生却是一天生日</p>
+<p>所以，由此可见，要保证消息摘要对碰撞问题是安全的，则安全消息摘要的长度就有一个下界</p>
+<h3 id="迭代的hash函数">迭代的Hash函数</h3>
+<p>和分组加密的工作模式类似，对所有数据进行迭代处理。后一组要和前一组有关。</p>
+<h2 id="md5">MD5</h2>
+<p>MD5以512位的分组长度来处理消息，每一个分组又被划分为<strong>16个32位</strong>的子分组。</p>
+<p>算法的输出由<strong>4个32位</strong>的分组组成，它们串联成一个128位的消息摘要。</p>
+<p>MD5将任意长度的“字节串”变换成一个128bit的大整数，并且是一个不可逆的字符串变换算法。</p>
+<h3 id="md5算法描述">MD5算法描述</h3>
+<h3 id="性质">性质</h3>
+<p>Hash函数的每一位均是输入消息序列中每一位的函数。保证了在Hash函数计算过程中产生基于消息 x 的混合重复，从而使得生成的Hash函数结果混合得非常理想。也就是说，随机选取两个有着相似规律性的两组消息序列，也很难产生相同的Hash函数值。</p>
+<h2 id="sha-1">SHA-1</h2>
+<p>目前，MD5算法被广泛应用于各种领域，从密码分析的角度上看，MD5仍然被认为是一种易受到攻击的算法，而且，近年来对MD5攻击的相关研究已取得了很大的进展。2004年，我国学者王小云给出了一种解决MD5碰撞问题的算法。因此，有必要用一个具有更长消息摘要和更能抵御已知密码分析攻击的Hash函数来代替目前被广泛使用的MD5算法。下面介绍的安全Hash算法（Security Hash algorithm）――SHA-1</p>
+<h3 id="sha-1算法描述">SHA-1算法描述</h3>
+<h3 id="与md5的比较">与MD5的比较</h3>
+<table>
+<thead>
+<tr>
+<th>比较项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>抗穷举搜索攻击的强度</td>
+<td>SHA-1强</td>
+</tr>
+<tr>
+<td>速度</td>
+<td>MD5运算速度快</td>
+</tr>
+<tr>
+<td>简洁与紧致性</td>
+<td>都较为简单</td>
+</tr>
+<tr>
+<td>小数在前结构与大数在前结构</td>
+<td>MD5使用小数在前方案来解释32bit字序列的报文，而SHA-1 则使用大数在前</td>
+</tr>
+</tbody>
+</table>
+<h2 id="md5和sha-1都不是完美的">MD5和SHA-1都不是完美的</h2>
+<p>2004年8月17日的美国加州圣巴巴拉的国际密码学会议（Crypto’2004）上，来自中国山东大学的王小云教授做了破译MD5、HAVAL-128、MD4和RIPEMD算法的报告，公布了MD系列算法的破解结果。宣告了固若金汤的世界通行密码标准MD5的堡垒轰然倒塌，引发了密码学界的轩然大波。令世界顶尖密码学家想象不到的是，破解MD5之后，2005年2月，王小云教授又破解了另一国际密码SHA－1。因为SHA－1在美国等国际社会有更加广泛的应用，密码被破的消息一出，在国际社会的反响可谓石破天惊。换句话说，王小云的研究成果表明了从理论上讲电子签名可以伪造，必须及时添加限制条件，或者重新选用更为安全的密码标准，以保证电子商务的安全。</p>
+<h2 id="mac-消息认证码">MAC 消息认证码</h2>
+<h3 id="基于分组密码的算法描述">基于分组密码的算法描述</h3>
+<h3 id="基于序列密码的算法描述">基于序列密码的算法描述</h3>
+
+            </div>
+            
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      福尔摩猫
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://holmecat.github.io/post/应用密码学 散列函数和消息鉴别/" title="应用密码学 散列函数和消息鉴别">https://holmecat.github.io/post/应用密码学 散列函数和消息鉴别/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://holmecat.github.io/tag/xojsxweYA/"># 应用密码学</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
       
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="C++算法题常用基础小知识" href="https://holmecat.github.io/post/C++算法题常用基础小知识/">C++算法题常用基础小知识</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="C++算法题常用基础小知识" href="https://holmecat.github.io/post/C++算法题常用基础小知识/">上一篇</a>
       
+    </div>
+    <div class="nav-next">
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+        <a class="nav-pc-next" title="应用密码学 公钥密码" href="https://holmecat.github.io/post/应用密码学 公钥密码/">应用密码学 公钥密码</a>
+        <a class="nav-mobile-next" title="应用密码学 公钥密码" href="https://holmecat.github.io/post/应用密码学 公钥密码/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-          </section>
+            
+            
+  
+    
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'b4f2fd809b2d80b670c0',
+    clientSecret: '6ae6ae4ac76869451a9a862c56790cd1cdebb843',
+    repo: 'HolmeCat.github.io',
+    owner: 'HolmeCat',
+    admin: ['HolmeCat'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
+</script>
+    
+    
+  
+
+          </div>
         </div>
       </div>
     </div>
@@ -541,6 +984,223 @@
     parent.insertBefore(aelem, next);
   })
 </script>
+    <div class="reward-mask" style="display: none;">
+  <div class="reward-relative">
+    <span class="close" aria-hidden="true">x</span>
+    <div class="reward-body">
+      <h2>感谢您的支持，我会继续努力的!</h2>
+      <div class="reward-img-box">
+        <div style="position: relative; width: 140px; height: 140px;">
+          
+          
+          
+        </div>
+      </div>
+      <p class="reward-word">扫码打赏，你说多少就多少</p>
+      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
+    </div>
+    <div class="bottom">
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+  .reward-mask {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000054;
+  }
+
+  .reward-relative {
+    position: relative;
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -205px;
+  }
+
+  .reward-relative .close {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+  }
+
+  .reward-body {
+    padding: 40px 20px 20px;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .reward-btn {
+    text-align: center;
+  }
+
+  .reward-btn-text {
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #ff9734;
+    color: #FFF;
+    margin-top: 20px;
+  }
+
+  .pay-text {
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1;
+    transition: all .2s linear;
+  }
+
+  .pay-text:hover {
+    background-color: #a5a5a536;
+  }
+
+  .reward-body h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  .reward-body h2:after,
+  .reward-body h2:before {
+    font-family: Arial, Helvetica, sans-serif;
+    background: 0 0;
+    width: 0;
+    height: 0;
+    font-style: normal;
+    color: #eee;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .reward-body h2:before {
+    content: '\201c';
+    left: 50px;
+  }
+
+  .reward-body h2:after {
+    content: '\201d';
+    right: 80px;
+  }
+
+  .reward-img-box {
+    display: inline-block;
+    padding: 10px;
+    border: 6px solid #ea5f00;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .reward-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .reward-relative {
+      height: 100%;
+      top: 0px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .reward-relative .bottom {
+      flex-direction: column;
+    }
+
+    .reward-relative .pay-text {
+      width: 80%;
+      margin: 5px auto;
+      border: 1px solid silver;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .reward-body h2:after {
+      right: 40px;
+    }
+
+    .reward-body h2:after,
+    .reward-body h2:before {
+      font-size: 60px;
+    }
+
+    .reward-body h2:before {
+      left: 20px;
+    }
+  }
+</style>
+<script>
+  !function () {
+    var mask = document.querySelector('.reward-mask');
+    let close = document.querySelector('.reward-relative .close');
+    let rewardBtn = document.querySelector('.reward-btn');
+
+    let zfb = document.querySelector('#zfb'),
+      wx = document.querySelector('#wx'),
+      zfbBtn = document.querySelector('#zfbBtn'),
+      wxBtn = document.querySelector('#wxBtn');
+
+    if (zfbBtn && wxBtn) {
+      zfbBtn.addEventListener('click', () => {
+        window.Velocity(zfb, 'transition.slideLeftIn', {
+          duration: 400
+        });
+        window.Velocity(wx, 'transition.slideRightOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+
+      wxBtn.addEventListener('click', () => {
+        window.Velocity(wx, 'transition.slideRightIn', {
+          duration: 400
+        });
+        window.Velocity(zfb, 'transition.slideLeftOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+    }
+
+    rewardBtn.addEventListener('click', (e) => {
+      window.Velocity(mask, 'transition.slideDownIn', {
+        duration: 400
+      })
+    });
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.Velocity(mask, 'transition.slideUpOut', {
+        duration: 400
+      })
+    })
+  }()
+</script>
+
   </div>
 </body>
 
@@ -2278,6 +2938,5 @@ Markdown 编写的文档后缀为 .md, .markdown。&lt;/p&gt;
 
   <div class="snow-container"></div>
   <script src="/media/js/bg/snow.js"></script>
-
 
 </html>
